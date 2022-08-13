@@ -1,0 +1,30 @@
+import { is } from 'ramda'
+import { mergeConfig } from 'vite'
+import type { UserConfig }  from './types'
+
+const isObj = (obj: unknown): obj is UserConfig => is(Object, obj)
+
+export function mergeUserConfig(a: UserConfig, b: UserConfig, isRoot = true) {
+  const merged: Record<string, any> = { ...a }
+  for (const key in b) {
+    const value = b[key as keyof UserConfig]
+    if (value == null) {
+      continue
+    }
+    const existing = merged[key]
+    if (Array.isArray(existing) && Array.isArray(value)) {
+      merged[key] = [...existing, ...value]
+      continue
+    }
+    if (isObj(existing) && isObj(value)) {
+      if (isRoot && key === 'vite') {
+        merged[key] = mergeConfig(existing, value)
+      } else {
+        merged[key] = mergeUserConfig(existing, value, false)
+      }
+      continue
+    }
+    merged[key] = value
+  }
+  return merged
+}
