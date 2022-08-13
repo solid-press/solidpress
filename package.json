@@ -1,6 +1,10 @@
 {
   "name": "solidpress",
   "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solid-press/solidpress.git"
+  },
   "description": "A static site generating framework based on Vite and solidjs",
   "packageManager": "pnpm@7.9.0",
   "author": "jw-foss",
