@@ -1,5 +1,16 @@
 {
   "name": "solidpress",
   "version": "0.0.1",
-  "description": "solid backed SSG framework"
+  "description": "A static site generating framework based on Vite and solidjs",
+  "packageManager": "pnpm@7.9.0",
+  "author": "jw-foss",
+  "license": "MIT",
+  "dependencies": {
+    "solid-js": "^1.4.8",
+    "vite": "^3.0.7"
+  },
+  "devDependencies": {
+    "vite-plugin-solid": "^2.3.0",
+    "vite-plugin-windicss": "^1.8.7"
+  }
 }
