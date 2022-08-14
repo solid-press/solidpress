@@ -9,6 +9,9 @@
   "packageManager": "pnpm@7.9.0",
   "author": "jw-foss",
   "license": "MIT",
+  "scripts": {
+    "test": "pnpm vitest"
+  },
   "dependencies": {
     "debug": "^4.3.4",
     "fast-glob": "^3.2.11",
@@ -23,6 +26,7 @@
     "@types/node": "^18.7.2",
     "@types/ramda": "^0.28.15",
     "vite-plugin-solid": "^2.3.0",
-    "vite-plugin-windicss": "^1.8.7"
+    "vite-plugin-windicss": "^1.8.7",
+    "vitest": "^0.21.1"
   }
 }
