@@ -9,6 +9,7 @@ import { DEFAULT_THEME_DIR } from '../alias'
 import { resolve } from '../utils/paths'
 import { allowedExtensions, debug } from './constants'
 import { mergeUserConfig } from './utils'
+import { fetchPages } from './pages'
 
 import type { UserConfig, UserConfigType, BuildType } from './types'
 
@@ -31,6 +32,7 @@ export async function resolveConfig(root: string, buildType: BuildType = 'serve'
   const userThemeDir = resolve(solidPressRoot, 'theme')
   const themeCustomized = fs.pathExistsSync(userThemeDir)
   const themeDir = themeCustomized ? userThemeDir : DEFAULT_THEME_DIR
+  const pages = await fetchPages(srcDir, ['**/node_modules', ...(config.excludes || [])])
 
   const { vite } = config
 
@@ -41,6 +43,7 @@ export async function resolveConfig(root: string, buildType: BuildType = 'serve'
     themeDir,
     configPath,
     deps,
+    pages,
     vite,
     tempDir: resolve(solidPressRoot, '.tmp')
   }

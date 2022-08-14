@@ -6,7 +6,7 @@ export interface UserConfig<ThemeConfig = any> {
   extends?: UserConfigType<ThemeConfig>
   base?: string
   srcDir?: string
-  srcExclude?: string[]
+  excludes?: string[]
   outDir?: string
   lang?: string
   title?: string
