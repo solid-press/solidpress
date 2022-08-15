@@ -1,4 +1,4 @@
-import { is } from 'ramda'
+import { is, isNil } from 'ramda'
 import { mergeConfig } from 'vite'
 import type { UserConfig }  from './types'
 
@@ -27,4 +27,16 @@ export function mergeUserConfig(a: UserConfig, b: UserConfig, isRoot = true) {
     merged[key] = value
   }
   return merged
+}
+
+export const mergeWithDefault = <T extends Record<string, any>>(a: T, b: Partial<T>): T => {
+  const t = {} as T
+  Object.keys(b).map((key: keyof typeof b) => {
+    if (isNil(a[key])) {
+      t[key] = b[key]
+    } else {
+      t[key] = a[key]
+    }
+  })
+  return t
 }

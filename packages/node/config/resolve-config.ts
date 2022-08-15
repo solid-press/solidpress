@@ -1,13 +1,12 @@
 import path from 'path'
 import fs from 'fs-extra'
 import { is } from 'ramda'
-import {
-  loadConfigFromFile,
-} from 'vite'
+import { loadConfigFromFile } from 'vite'
 
 import { DEFAULT_THEME_DIR } from '../alias'
 import { resolve } from '../utils/paths'
 import { allowedExtensions, debug } from './constants'
+import { resolveSiteData } from './site'
 import { mergeUserConfig } from './utils'
 import { fetchPages } from './pages'
 
@@ -26,6 +25,8 @@ export async function resolveConfig(root: string, buildType: BuildType = 'serve'
     mode,
   )
 
+  const siteData = resolveSiteData(config)
+
   const srcDir = path.resolve(root, config.srcDir || '.')
   const outDir = config.outDir ? path.resolve(root, config.outDir) : resolve(solidPressRoot, 'dist')
 
@@ -37,15 +38,16 @@ export async function resolveConfig(root: string, buildType: BuildType = 'serve'
   const { vite } = config
 
   return {
-    root,
-    srcDir,
-    outDir,
-    themeDir,
     configPath,
     deps,
+    outDir,
     pages,
+    root,
+    srcDir,
+    siteData,
+    themeDir,
+    tempDir: resolve(solidPressRoot, '.tmp'),
     vite,
-    tempDir: resolve(solidPressRoot, '.tmp')
   }
 }
 
@@ -56,7 +58,7 @@ export async function resolveUserConfig(root: string, buildType: BuildType, mode
     (ext) => resolve(solidPressRoot, `config.${ext}`))
       .find(fs.pathExistsSync)
 
-  let config: UserConfigType = {}
+  let config = {} as UserConfigType
   let deps: string[] = []
 
   if (!configPath) {
