@@ -1,4 +1,5 @@
 import { HeadConfigs } from './head'
+import { UserConfig } from './config'
 
 export interface LanguageConfig {
   lang: string
@@ -20,3 +21,15 @@ export interface SiteData {
 export type SiteLocalizedConfig = {
   label?: string
 } & Pick<SiteData, 'lang'> & Partial<Exclude<SiteData, 'lang'>>
+
+export type SiteConfig = {
+  root: string
+  srcDir: string
+  site: SiteData
+  configPath: undefined | string
+  deps: string[]
+  outDir: string
+  tempDir: string
+  themeDir: string
+  pages: string[]
+} & Pick<UserConfig, 'vite'>

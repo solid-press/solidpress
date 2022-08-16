@@ -10,7 +10,12 @@ import { resolveSiteData } from './site'
 import { mergeUserConfig } from './utils'
 import { fetchPages } from './pages'
 
-import type { UserConfig, UserConfigType, BuildType } from './types'
+import type {
+  BuildType,
+  SiteConfig,
+  UserConfig,
+  UserConfigType,
+} from './types'
 
 export async function resolveConfig(root: string, buildType: BuildType = 'serve', mode = 'development') {
   const solidPressRoot = path.resolve(root, '.solidpress')
@@ -44,11 +49,11 @@ export async function resolveConfig(root: string, buildType: BuildType = 'serve'
     pages,
     root,
     srcDir,
-    siteData,
+    site: siteData,
     themeDir,
     tempDir: resolve(solidPressRoot, '.tmp'),
     vite,
-  }
+  } as SiteConfig
 }
 
 export async function resolveUserConfig(root: string, buildType: BuildType, mode: string) {
