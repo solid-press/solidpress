@@ -2,7 +2,7 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { describe, it, expect } from 'vitest'
 import { resolveConfig } from '../../config/resolve-config'
-import { DEFAULT_THEME_DIR, PKG_ROOT  } from '../../alias'
+import { DEFAULT_THEME_DIR } from '../../paths'
 import { resolve } from '../../utils/paths'
 
 describe('Resolve Config', () => {

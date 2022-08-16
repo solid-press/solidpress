@@ -3,7 +3,7 @@ import fs from 'fs-extra'
 import { is } from 'ramda'
 import { loadConfigFromFile } from 'vite'
 
-import { DEFAULT_THEME_DIR } from '../alias'
+import { DEFAULT_THEME_DIR } from '../paths'
 import { resolve } from '../utils/paths'
 import { allowedExtensions, debug } from './constants'
 import { resolveSiteData } from './site'

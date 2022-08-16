@@ -1,5 +1,6 @@
-import { HeadConfigs } from './head'
-import { UserConfig } from './config'
+import type { AliasOptions } from 'vite'
+import type { HeadConfigs } from './head'
+import type { UserConfig } from './config'
 
 export interface LanguageConfig {
   lang: string
@@ -23,6 +24,7 @@ export type SiteLocalizedConfig = {
 } & Pick<SiteData, 'lang'> & Partial<Exclude<SiteData, 'lang'>>
 
 export type SiteConfig = {
+  alias: AliasOptions
   root: string
   srcDir: string
   site: SiteData

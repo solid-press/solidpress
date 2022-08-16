@@ -16,6 +16,7 @@ export async function createServer(
   return createViteServer({
     root: config.srcDir,
     base: config.site.base,
+    plugins: [],
     server: serverOptions
   })
 }
