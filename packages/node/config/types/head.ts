@@ -1,4 +1,4 @@
-type HeadAttributes = Record<string, string | boolean>
+type HeadAttributes = Record<string, string>
 
 export type HeadConfig =
 | [string, HeadAttributes, string]

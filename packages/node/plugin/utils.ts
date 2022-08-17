@@ -25,4 +25,4 @@ export const processClientJS = (code: string, id: string, map?: Record<string, s
     : code
 }
 
-export const isPageFile = (filename: string) => filename.endsWith('.md')
+export const isPageFile = (filename: string) => ['mdx', 'md'].some(ext => filename.endsWith(ext))

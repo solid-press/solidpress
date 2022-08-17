@@ -1,0 +1,12 @@
+{
+  "private": true,
+  "name": "solidpress-example-minimal",
+  "scripts": {
+    "dev": "solidpress dev",
+    "build": "solidpress build",
+    "serve": "solidpress serve"
+  },
+  "devDependencies": {
+    "solidpress": "workspace:0.0.1"
+  }
+}

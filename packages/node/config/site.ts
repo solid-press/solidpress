@@ -40,6 +40,6 @@ export const resolveSiteData = (config: UserConfig): SiteData => {
 }
 
 function resolveHeadData(config: UserConfig): HeadConfigs {
-
-  return config.head.concat([])
+  const head = config.head ?? []
+  return head.concat([])
 }

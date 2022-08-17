@@ -9,13 +9,13 @@ import {
   staticStripRE,
   hashRE,
 } from './constants'
-import { isPageChunk } from './utils'
+import { isPageChunk, isPageFile } from './utils'
 
 import type { Plugin, ResolvedConfig } from 'vite'
 import type { OutputBundle, OutputChunk } from 'rollup'
 import type { SiteConfig } from '../config/types'
 
-export const createSolidPressPlugin = (
+export const ViteSolidPressPlugin = (
   siteConfig: SiteConfig,
   ssr = false,
   pagesMap:Record<string, string>,
@@ -27,6 +27,7 @@ export const createSolidPressPlugin = (
     srcDir,
     site,
     vite,
+    pages,
   } = siteConfig
 
   let config: ResolvedConfig
@@ -55,7 +56,10 @@ export const createSolidPressPlugin = (
     async configResolved(_config) {
       config = _config
 
-      render = await createMarkdownRenderer()
+      render = await createMarkdownRenderer({
+        pages,
+        srcDir,
+      })
     },
     resolveId(id) {
       return equals(id, SITE_DATA_PATH) && SITE_DATA_PATH || undefined
@@ -73,7 +77,13 @@ export const createSolidPressPlugin = (
       }
     },
     async transform(code, id) {
-      // Fill in transformations
+      if (isPageFile(id)) {
+        const { 
+
+        } = await render(code, id, config.publicDir)
+      }
+
+      return code
     },
 
     configureServer(server) {

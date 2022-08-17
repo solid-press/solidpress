@@ -1,5 +1,6 @@
 import { createServer as createViteServer, ServerOptions } from 'vite'
 import { resolveConfig } from './config'
+import { ViteSolidPressPlugin } from './plugin/vite-solidpress-plugin'
 
 export async function createServer(
   root: string = process.cwd(),
@@ -16,7 +17,7 @@ export async function createServer(
   return createViteServer({
     root: config.srcDir,
     base: config.site.base,
-    plugins: [],
+    plugins: [ViteSolidPressPlugin(config, false, {})],
     server: serverOptions
   })
 }
