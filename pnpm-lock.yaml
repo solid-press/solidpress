@@ -12,6 +12,7 @@ specifiers:
   '@types/markdown-it': ^12.2.3
   '@types/node': ^18.7.6
   '@types/ramda': ^0.28.15
+  clsx: ^1.2.1
   debug: ^4.3.4
   esbuild: ^0.15.5
   fast-glob: ^3.2.11
@@ -36,6 +37,7 @@ specifiers:
   vitest: ^0.21.1
 
 dependencies:
+  clsx: 1.2.1
   solid-js: 1.4.8
   vite: 3.0.8
 
@@ -853,6 +855,11 @@ packages:
   /check-error/1.0.2:
     resolution: {integrity: sha512-BrgHpW9NURQgzoNyjfq0Wu6VFO6D7IZEmJNdtgNqpzGG8RuNFHt2jQxWlAs4HMe119chBnv+34syEZtc6IhLtA==}
     dev: true
+
+  /clsx/1.2.1:
+    resolution: {integrity: sha512-EcR6r5a8bj6pu3ycsa/E/cKVGuTgZJZdsyUYHOksG/UHIiKfjxzRxYJpyVBwYaQeOvghal9fcc4PidlgzugAQg==}
+    engines: {node: '>=6'}
+    dev: false
 
   /color-convert/1.9.3:
     resolution: {integrity: sha512-QfAUtd+vFdAtFQcC8CCyYt1fYWxSqAiK2cSD6zDB8N3cpsEBAvRxp9zOGg6G/SHHJYAT88/az/IuDGALsNVbGg==}

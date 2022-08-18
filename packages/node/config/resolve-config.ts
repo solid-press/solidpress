@@ -5,6 +5,7 @@ import { loadConfigFromFile } from 'vite'
 
 import { DEFAULT_THEME_DIR } from '../paths'
 import { resolve } from '../utils/paths'
+import { resolveAlias } from '../alias'
 import { allowedExtensions, debug } from './constants'
 import { resolveSiteData } from './site'
 import { mergeUserConfig } from './utils'
@@ -43,6 +44,7 @@ export async function resolveConfig(root: string, buildType: BuildType = 'serve'
   const { vite } = config
 
   return {
+    alias: resolveAlias('', themeDir),
     configPath,
     deps,
     outDir,

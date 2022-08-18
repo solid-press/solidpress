@@ -36,6 +36,7 @@
     "solidpress": "bin/solidpress.js"
   },
   "dependencies": {
+    "clsx": "^1.2.1",
     "solid-js": "^1.4.8",
     "vite": "^3.0.8"
   },

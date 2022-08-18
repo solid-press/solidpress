@@ -1,3 +1,9 @@
+import Layout from '@theme-classic/Layout'
+
 export default () => {
-  return <div>SolidPress App</div>
+  return (
+    <Layout>
+      Layout
+    </Layout>
+  )
 }

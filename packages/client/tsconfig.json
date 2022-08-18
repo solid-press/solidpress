@@ -17,7 +17,8 @@
     "outDir": "../../dist/client",
     "types": ["vite/client"],
     "paths": {
-      "@/*": ["./app/*"]
+      "@/*": ["./app/*"],
+      "@theme-classic/*": ["./theme-classic/theme/*"]
     }
   },
   "include": ["."],

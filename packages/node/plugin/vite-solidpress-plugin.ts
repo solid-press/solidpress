@@ -78,9 +78,9 @@ export const ViteSolidPressPlugin = (
     },
     async transform(code, id) {
       if (isPageFile(id)) {
-        const { 
+        // const { 
 
-        } = await render(code, id, config.publicDir)
+        // } = await render(code, id, config.publicDir)
       }
 
       return code
