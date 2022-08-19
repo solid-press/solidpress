@@ -3,7 +3,7 @@ import type { Alias } from 'vite'
 export const resolveAlias = (_: string, themeDir: string) => {
   const aliases: Alias[] = [
     {
-      find: '@theme-classic',
+      find: '@theme',
       replacement: themeDir,
     },
     {

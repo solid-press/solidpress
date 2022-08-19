@@ -18,7 +18,7 @@
     "types": ["vite/client"],
     "paths": {
       "@/*": ["./app/*"],
-      "@theme-classic/*": ["./theme-classic/theme/*"]
+      "@theme/*": ["./theme-classic/*"]
     }
   },
   "include": ["."],

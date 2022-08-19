@@ -1,9 +1,9 @@
-import Layout from '@theme-classic/Layout'
+import Layout from '@theme/Layout'
 
 export default () => {
   return (
     <Layout>
-      Layout
+      { 'Layout' }
     </Layout>
   )
 }
