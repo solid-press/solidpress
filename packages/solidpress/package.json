@@ -1,0 +1,62 @@
+{
+  "name": "@solidpress/core",
+  "version": "0.0.1",
+  "description": "SolidPress core",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solid-press/solidpress.git",
+    "directory": "packages/theme-classic"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "dev": "run-p -c build:watch",
+    "build:watch": "tsc --build --watch",
+    "copy:watch": "node ../../admin/scripts/copyUntypedFiles.js --watch"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^2.1.2",
+    "@rollup/plugin-alias": "^3.1.9",
+    "@rollup/plugin-commonjs": "^22.0.2",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^13.3.0",
+    "@rollup/plugin-replace": "^4.0.0",
+    "@solidpress/utils": "workspace:*",
+    "debug": "^4.3.4",
+    "esbuild": "^0.15.5",
+    "fast-glob": "^3.2.11",
+    "fs-extra": "^10.1.0",
+    "gray-matter": "^4.0.3",
+    "lru-cache": "^7.14.0",
+    "markdown-it": "^13.0.1",
+    "minimist": "^1.2.6",
+    "npm-run-all": "^4.1.5",
+    "picocolors": "^1.0.0",
+    "ramda": "^0.28.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.78.0",
+    "rollup-plugin-dts": "^4.2.2",
+    "rollup-plugin-esbuild": "^4.9.3",
+    "solid-refresh": "^0.4.1",
+    "typescript": "^4.7.4",
+    "vite-plugin-solid": "^2.3.0",
+    "vite-plugin-windicss": "^1.8.7",
+    "solid-js": "^1.4.8",
+    "vite": "^3.0.8",
+    "vitest": "^0.21.1"
+  },
+  "devDependencies": {
+
+    "@types/debug": "^4.1.7",
+    "@types/fs-extra": "^9.0.13",
+    "@types/markdown-it": "^12.2.3",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^18.7.6",
+    "@types/ramda": "^0.28.15"
+  },
+  "engines": {
+    "node": ">=16.17"
+  }
+}

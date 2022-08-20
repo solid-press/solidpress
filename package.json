@@ -1,6 +1,7 @@
 {
   "name": "solidpress",
   "version": "0.0.1",
+  "private": "true",
   "type": "module",
   "repository": {
     "type": "git",
@@ -12,65 +13,23 @@
   "license": "MIT",
   "scripts": {
     "test": "pnpm vitest",
-    "dev": "rimraf dist && run-p dev-*",
-    "dev-client": "tsc -w -p packages/client",
-    "dev-node": "DEV=true pnpm run build-node -w",
-    "build-node": "rollup --config rollup.config.ts --configPlugin esbuild",
-    "dev:minimal": "node ./bin/solidpress dev demos/minimal"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/node/index.js",
-      "require": "./dist/node-cjs/index.cjs"
-    },
-    "./dist/client/*": "./dist/client/*",
-    "./client": {
-      "default": "./dist/client/index.js"
-    },
-    "./theme": {
-      "types": "./theme.d.ts",
-      "default": "./dist/client/theme-default/index.js"
-    }
-  },
-  "bin": {
-    "solidpress": "bin/solidpress.js"
-  },
-  "dependencies": {
-    "clsx": "^1.2.1",
-    "solid-js": "^1.4.8",
-    "vite": "^3.0.8"
+    "watch": "WATCH=true pnpm -r --parallel --stream run dev",
+    "build": "",
+    "dev:website": "node ./packages/core/bin/solidpress dev website"
   },
   "devDependencies": {
-    "@mdx-js/mdx": "^2.1.2",
-    "@rollup/plugin-alias": "^3.1.9",
-    "@rollup/plugin-commonjs": "^22.0.2",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.3.0",
-    "@rollup/plugin-replace": "^4.0.0",
-    "@types/debug": "^4.1.7",
-    "@types/fs-extra": "^9.0.13",
-    "@types/markdown-it": "^12.2.3",
-    "@types/node": "^18.7.6",
-    "@types/ramda": "^0.28.15",
-    "debug": "^4.3.4",
-    "esbuild": "^0.15.5",
-    "fast-glob": "^3.2.11",
-    "fs-extra": "^10.1.0",
-    "gray-matter": "^4.0.3",
-    "lru-cache": "^7.14.0",
-    "markdown-it": "^13.0.1",
-    "minimist": "^1.2.6",
-    "npm-run-all": "^4.1.5",
-    "picocolors": "^1.0.0",
-    "ramda": "^0.28.0",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.78.0",
-    "rollup-plugin-dts": "^4.2.2",
-    "rollup-plugin-esbuild": "^4.9.3",
-    "solid-refresh": "^0.4.1",
-    "typescript": "^4.7.4",
-    "vite-plugin-solid": "^2.3.0",
-    "vite-plugin-windicss": "^1.8.7",
-    "vitest": "^0.21.1"
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.22.0",
+    "eslint": "^8.22.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-eslint-plugin": "^5.0.5",
+    "eslint-plugin-header": "^3.1.1",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-regexp": "^1.8.0",
+    "eslint-plugin-solid": "^0.7.1",
+    "prettier": "^2.7.1",
+    "typescript": "^4.7.4"
   }
 }

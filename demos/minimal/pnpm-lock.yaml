@@ -1,7 +1,0 @@
-lockfileVersion: 5.4
-
-specifiers:
-  solidpress: workspace:0.0.1
-
-devDependencies:
-  solidpress: link:../..

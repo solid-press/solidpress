@@ -1,0 +1,28 @@
+{
+  "name": "@solidpress/utils",
+  "version": "0.0.1",
+  "description": "Node utility functions for SolidPress packages.",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solid-press/solidpress.git",
+    "directory": "packages/solidpress-utils"
+  },
+  "license": "MIT",
+  "dependencies": {
+  },
+  "engines": {
+    "node": ">=16.14"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.51"
+  }
+}

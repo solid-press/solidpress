@@ -1,0 +1,16 @@
+__fixtures__
+__mocks__
+dist
+node_modules
+.history
+build
+coverage
+demos/
+
+packages/solidpress/lib/
+packages/solidpress-*/lib/*
+packages/eslint-plugin/lib/
+
+packages/create-solidpress/lib/*
+
+tailwind.config.js

@@ -1,0 +1,27 @@
+
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "declaration": true,
+    "declarationDir": "../../dist/client-types",
+    "resolveJsonModule": true,
+    "moduleResolution": "node",
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js",
+    "outDir": "../../dist/client",
+    "types": ["vite/client"],
+    "paths": {
+      "@/*": ["./app/*"],
+      "@theme/*": ["./theme-classic/*"]
+    }
+  },
+  "files": [
+    "./node_modules/solid-js/jsx-runtime.d.ts"
+  ],
+  "include": ["."],
+}
