@@ -9,6 +9,8 @@
     "outDir": "lib",
     "module": "esnext",
     "target": "esnext",
+    "jsxImportSource": "solid-js",
+    "lib": ["ESNext", "dom"]
   },
   "include": [
     "src/nprogress.ts",

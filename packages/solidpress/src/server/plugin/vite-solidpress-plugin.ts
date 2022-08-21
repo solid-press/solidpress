@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 import { defineConfig, mergeConfig } from 'vite'
 import type { Plugin, ResolvedConfig } from 'vite'
 import { equals, isNil } from 'ramda'
@@ -125,7 +127,7 @@ function SSRBuild(bundle: OutputBundle) {
   // ssr build:
   // delete all asset chunks
   for (const name in bundle) {
-    if (bundle[name].type === 'asset') {
+    if (bundle[name]!.type === 'asset') {
       delete bundle[name]
     }
   }
@@ -138,7 +140,7 @@ function normalBuild(bundle: OutputBundle, pagesMap: { [key: string]: string }) 
     const chunk = bundle[name] as OutputChunk
     if (isPageChunk(chunk)) {
       // record page -> hash relations
-      const fileHash = chunk.fileName.match(hashRE)![1]
+      const fileHash = chunk.fileName.match(hashRE)![1]!
       pagesMap[chunk.name.toLowerCase()] = fileHash
 
       // inject another chunk with the content stripped

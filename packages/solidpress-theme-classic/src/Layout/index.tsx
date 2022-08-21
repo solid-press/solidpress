@@ -2,30 +2,24 @@ import clsx from 'clsx'
 import { ErrorBoundary, Show } from 'solid-js/web'
 import NavBar from '@theme/Navbar'
 
-import type { ParentProps } from 'solid-js'
+import type { ParentProps, JSX } from 'solid-js'
 export interface Props {
   noFooter?: boolean
   wrapperClass?: string
 }
 
-export default function Layout(props: ParentProps<Props>) {
-  const {
-    children,
-    noFooter,
-    wrapperClass,
-  } = props
+export default function Layout(props: ParentProps<Props>): JSX.Element {
 
   return (
     <div>
-
       <NavBar />
-      <div class={clsx(wrapperClass)}>
-        <ErrorBoundary fallback={(params) => params}>
-          {children}
+      <div class={clsx(props.wrapperClass)}>
+        <ErrorBoundary fallback={(params: any) => params}>
+          {props.children}
         </ErrorBoundary>
       </div>
 
-      <Show when={!noFooter}>
+      <Show when={!props.noFooter}>
         <div>
           Footer
         </div>

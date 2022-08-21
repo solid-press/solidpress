@@ -1,12 +1,14 @@
 {
   "private": true,
   "name": "solidpress-example-minimal",
+  "type": "module",
   "scripts": {
     "watch": "solidpress dev",
     "build": "solidpress build",
     "serve": "solidpress serve"
   },
   "devDependencies": {
-    "solidpress": "workspace:*"
+    "@solidpress/core": "workspace:*",
+    "solid-js": "^1.4.8"
   }
 }

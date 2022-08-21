@@ -5,7 +5,7 @@ export interface Props {
   right: JSX.Element
 }
 
-export default function NavbarContentLayout(props) {
+export default function NavbarContentLayout(props: any) {
   return (
     <div class="navbar__inner">
       <div class="navbar__items">{props.left}</div>

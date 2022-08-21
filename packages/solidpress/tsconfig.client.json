@@ -9,7 +9,8 @@
     "target": "esnext",
     "rootDir": "src",
     "outDir": "lib",
-    "lib": ["DOM"]
+    "lib": ["dom"],
+    "jsxImportSource": "solid-js"
    },
   "include": ["src/client", "src/*.d.ts"],
   "exclude": ["**/__tests__/**"]

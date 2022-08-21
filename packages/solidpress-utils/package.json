@@ -2,6 +2,7 @@
   "name": "@solidpress/utils",
   "version": "0.0.1",
   "description": "Node utility functions for SolidPress packages.",
+  "type": "module",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {

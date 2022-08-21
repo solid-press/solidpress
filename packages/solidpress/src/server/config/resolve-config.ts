@@ -90,7 +90,7 @@ export async function resolveUserConfig(root: string, buildType: BuildType, mode
       deps = userConfig.dependencies.map(file => resolve(file))
     }
   }
-
+  
   return {
     config: await resolveConfigExtends(config),
     configPath,

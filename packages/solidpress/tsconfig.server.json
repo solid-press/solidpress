@@ -6,7 +6,9 @@
     "incremental": true,
     "tsBuildInfoFile": "./lib/.tsbuildinfo",
     "rootDir": "src",
-    "outDir": "lib"
+    "outDir": "lib", 
+    "types": ["node"],
+    "target": "es2020"
   },
   "include": ["src"],
   "exclude": ["src/client", "**/__tests__/**"]

@@ -1,4 +1,4 @@
-import { defineConfig } from '../../packages/node'
+import { defineConfig } from '@solidpress/core'
 
 export default defineConfig({
   themeConfig: {

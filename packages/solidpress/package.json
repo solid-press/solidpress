@@ -2,19 +2,26 @@
   "name": "@solidpress/core",
   "version": "0.0.1",
   "description": "SolidPress core",
-  "module": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "type": "module",
+  "bin": {
+   "solidpress": "bin/solidpress.mjs"
+  },
+  "module": "lib/server/index.js",
+  "main": "lib/server/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/solid-press/solidpress.git",
-    "directory": "packages/theme-classic"
+    "directory": "packages/solidpress"
   },
   "scripts": {
-    "build": "tsc --build",
-    "dev": "run-p -c build:watch",
-    "build:watch": "tsc --build --watch",
-    "copy:watch": "node ../../admin/scripts/copyUntypedFiles.js --watch"
+    "dev": "rimraf lib && pnpm dev:start",
+    "dev:start": "run-p dev:client dev:server",
+    "dev:client": "tsc -w -p tsconfig.client.json",
+    "dev:server": "DEV=true pnpm run build:server -w",
+    "build:client": "tsc -p tsconfig.client.json",
+    "build:server": "rollup --config rollup.config.ts --configPlugin esbuild",
+    "build:watch": "run-p -c build:server -w build:client -w"
   },
   "dependencies": {
     "@mdx-js/mdx": "^2.1.2",
