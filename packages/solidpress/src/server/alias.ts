@@ -1,9 +1,9 @@
-import { join } from 'path'
+import type { Alias } from 'vite'
+import path from 'path'
 import { DIST_CLIENT_DIR } from './paths'
 
-import type { Alias } from 'vite'
 
-export const resolveAlias = (_: string, themeDir: string) => {
+export const resolveAlias = (_: string, themeDir: string): Alias[] => {
   const aliases: Alias[] = [
     {
       find: '@theme',
@@ -15,11 +15,11 @@ export const resolveAlias = (_: string, themeDir: string) => {
     },
     {
       find: /^solidpress$/,
-      replacement: join(DIST_CLIENT_DIR, '/index'),
+      replacement: path.join(DIST_CLIENT_DIR, '/index'),
     },
     {
       find: /^solidpress\/theme$/,
-      replacement: join(DIST_CLIENT_DIR, '/theme-classic/index')
+      replacement: path.join(DIST_CLIENT_DIR, '/theme-classic/index')
     }
   ]
 

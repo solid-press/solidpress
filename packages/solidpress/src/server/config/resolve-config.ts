@@ -1,9 +1,10 @@
 import { loadConfigFromFile } from 'vite'
+import { createRequire } from 'module'
 import path from 'path'
 import fs from 'fs-extra'
 import { is } from 'ramda'
 
-import { DEFAULT_THEME_DIR } from '../paths'
+// import { DEFAULT_THEME_DIR } from '../paths'
 import { resolve } from '../utils/paths'
 import { resolveAlias } from '../alias'
 import { allowedExtensions, debug } from './constants'
@@ -24,7 +25,6 @@ export async function resolveConfig(
   mode = 'development',
 ) {
   const solidPressRoot = path.resolve(root, '.solidpress')
-
   const {
     config,
     configPath,
@@ -41,6 +41,8 @@ export async function resolveConfig(
   const outDir = config.outDir ? path.resolve(root, config.outDir) : resolve(solidPressRoot, 'dist')
 
   const userThemeDir = resolve(solidPressRoot, 'theme')
+  const siteRequire = createRequire(solidPressRoot)
+  const DEFAULT_THEME_DIR = path.resolve(siteRequire.resolve('@solidpress/theme-classic'), '..')
   // eslint-disable-next-line no-restricted-properties
   const themeCustomized = fs.pathExistsSync(userThemeDir)
   const themeDir = themeCustomized ? userThemeDir : DEFAULT_THEME_DIR

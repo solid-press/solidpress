@@ -15,7 +15,7 @@
     "test": "pnpm vitest",
     "dev": "WATCH=true pnpm -r --parallel --stream run dev",
     "build": "",
-    "dev:website": "node ./packages/solidpress/bin/solidpress.mjs dev website"
+    "dev:website": "./website/node_modules/.bin/solidpress dev website"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.33.1",
