@@ -1,12 +1,11 @@
 import Layout from '@theme/Layout'
 import { DataProvider } from './contexts'
 
+import type { JSX } from 'solid-js'
 
-export default () => {
-
-  
+export default (): JSX.Element => {
   return (
-    <DataProvider value={}>
+    <DataProvider value={{}}>
       <Layout>
         { 'Layout' }
       </Layout>

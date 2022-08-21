@@ -1,7 +1,7 @@
-import type { Alias } from 'vite'
 import { join } from 'path'
 import { DIST_CLIENT_DIR } from './paths'
 
+import type { Alias } from 'vite'
 
 export const resolveAlias = (_: string, themeDir: string) => {
   const aliases: Alias[] = [

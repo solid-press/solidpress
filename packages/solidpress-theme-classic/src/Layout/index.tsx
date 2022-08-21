@@ -2,13 +2,11 @@ import clsx from 'clsx'
 import { ErrorBoundary, Show } from 'solid-js/web'
 import NavBar from '@theme/Navbar'
 
-
 import type { ParentProps } from 'solid-js'
 export interface Props {
   noFooter?: boolean
   wrapperClass?: string
 }
-
 
 export default function Layout(props: ParentProps<Props>) {
   const {

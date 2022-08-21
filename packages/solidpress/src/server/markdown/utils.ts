@@ -18,12 +18,12 @@ export const inferMeta = (fm: { [key: string]: any }, content: string) => {
     const match = content.match(markdownHeadingRE)
     if (match) {
       // eslint-disable-next-line @typescript-eslint/no-use-before-define
-      title = deeplyParseHeader(match[1])
+      title = deeplyParseHeader(match[1]!)
     }
   }
 
   if (!isNil(fm.description)) {
-    description = fm.description
+    ({ description } = fm)
   } else {
     description = getDataFromHeadMeta(fm.head, 'description') || ''
   }

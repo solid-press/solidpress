@@ -5,12 +5,16 @@
     "composite": true,
     "incremental": true,
     "tsBuildInfoFile": "./lib/.tsbuildinfo-client",
-    "module": "esnext",
-    "target": "esnext",
     "rootDir": "src",
     "outDir": "lib",
-    "lib": ["DOM"]
-   },
-  "include": ["src/client", "src/*.d.ts"],
+    "module": "esnext",
+    "target": "esnext",
+  },
+  "include": [
+    "src/nprogress.ts",
+    "src/prism-include-languages.ts",
+    "src/theme",
+    "src/*.d.ts"
+  ],
   "exclude": ["**/__tests__/**"]
 }

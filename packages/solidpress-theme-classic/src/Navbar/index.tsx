@@ -1,5 +1,5 @@
-import NavbarContent from './Content'
-import NavbarLayout from './Layout'
+import NavbarContent from '@theme/Navbar/Content'
+import NavbarLayout from '@theme/Navbar/Layout'
 
 export default function() {
   return (
