@@ -1,8 +1,8 @@
 import MD from 'markdown-it'
 
-import type { MDEnhanced } from './types'
+import type { MDEnhanced } from '@solidpress/types'
 
-const createRenderer = async () => {
+const createRenderer = async (): Promise<MDEnhanced> => {
   const md = MD({
     html: true,
     linkify: true,

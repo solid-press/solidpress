@@ -26,7 +26,7 @@ export type MDOutput = {
 
 export type PageData = {
   description: string
-  frontmatter: { [key: string]: any }
+  frontmatter: { [key: string]: unknown }
   headers: Headers
   secondaryTitle?: string | boolean
   title: string

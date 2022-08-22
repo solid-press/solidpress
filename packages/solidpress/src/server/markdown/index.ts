@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { relative, dirname } from 'path'
+import path from 'path'
 import Cache from 'lru-cache'
 import parse from 'gray-matter'
 import { slash } from '../utils/paths'
@@ -7,9 +7,7 @@ import { mdRE, CACHE_SIZE } from './constants'
 import createRenderer from './markdown'
 import { debug, inferMeta } from './utils'
 
-import type { PageData, MDOutput } from './types'
-
-export * from './types'
+import type { PageData, MDOutput } from '@solidpress/types'
 
 interface CreateMarkdownRendererParams {
   srcDir: string
@@ -18,16 +16,17 @@ interface CreateMarkdownRendererParams {
 
 const pageMap = new Cache<string, MDOutput>({ max: CACHE_SIZE })
 
+type MDRenderer = ((src: string, file: string, publicDir: string) => Promise<MDOutput>)
+
 export const createMarkdownRenderer = async ({
   srcDir,
   pages,
-}: CreateMarkdownRendererParams) => {
+}: CreateMarkdownRendererParams): Promise<MDRenderer> => {
 
   const renderer = await createRenderer()
 
   pages = pages.map(page => slash(page.replace(mdRE, '')))
   
-
   return async (
     src: string,
     file: string,
@@ -35,7 +34,7 @@ export const createMarkdownRenderer = async ({
   ) => {
     // Fill in the renderer
 
-    const relativePath = relative(srcDir, file)
+    const relativePath = path.relative(srcDir, file)
 
     const key = JSON.stringify({ src, file })
 
@@ -46,7 +45,7 @@ export const createMarkdownRenderer = async ({
     }
 
     const start = Date.now()
-    const fileDir = dirname(file)
+    const fileDir = path.dirname(file)
 
     renderer.__path = file
     renderer.__relativePath = relativePath

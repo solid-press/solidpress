@@ -32,6 +32,8 @@
     "@rollup/plugin-replace": "^4.0.0",
     "@solidpress/theme-classic": "workspace:*",
     "@solidpress/utils": "workspace:*",
+    "@solidpress/alias": "workspace:*",
+    "@solidpress/types": "workspace:*",
     "debug": "^4.3.4",
     "esbuild": "^0.15.5",
     "fast-glob": "^3.2.11",
@@ -60,7 +62,7 @@
     "@types/minimist": "^1.2.2",
     "@types/node": "^18.7.6",
     "@types/ramda": "^0.28.15",
-    "@solidpress/alias": "workspace:*",
+
     "typescript": "^4.7.4"
   },
   "engines": {

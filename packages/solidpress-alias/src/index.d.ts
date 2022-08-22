@@ -9,6 +9,12 @@ declare module '@theme/Layout' {
   export default function Layout(props: Props): JSX.Element;
 }
 
+declare module '@theme/NotFound' {
+  import type { JSX } from 'solid-js';
+
+  export default function NotFound(): JSX.Element;
+}
+
 
 declare module '@siteData/meta' {
 

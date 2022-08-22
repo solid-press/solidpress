@@ -65,13 +65,17 @@ export async function resolveConfig(
   } as SiteConfig
 }
 
-export async function resolveUserConfig(root: string, buildType: BuildType, mode: string) {
+export async function resolveUserConfig(
+  root: string,
+  buildType: BuildType,
+  mode: string
+): Promise<{ configPath: string, config: UserConfig, deps: string[] }> {
   const solidPressRoot = path.resolve(root, '.solidpress')
 
   const configPath = allowedExtensions.map(
     (ext) => resolve(solidPressRoot, `config.${ext}`))
-      // eslint-disable-next-line no-restricted-properties
-      .find(fs.pathExistsSync)
+    // eslint-disable-next-line no-restricted-properties
+    .find(fs.pathExistsSync)
 
   let config = {} as UserConfigType
   let deps: string[] = []
@@ -88,11 +92,11 @@ export async function resolveUserConfig(root: string, buildType: BuildType, mode
     debug(`config loaded successfully from ${configPath}`)
 
     if (userConfig) {
-      config = userConfig.config
+      ({ config } = userConfig)
       deps = userConfig.dependencies.map(file => resolve(file))
     }
   }
-  
+
   return {
     config: await resolveConfigExtends(config),
     configPath,

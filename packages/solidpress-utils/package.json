@@ -24,6 +24,8 @@
     "node": ">=16.14"
   },
   "devDependencies": {
-    "@types/node": "^16.11.51"
+    "@solidpress/types": "workspace:*",
+    "@types/node": "^16.11.51",
+    "vite": "^2.9.7"
   }
 }
