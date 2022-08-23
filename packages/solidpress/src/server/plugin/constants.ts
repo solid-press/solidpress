@@ -23,7 +23,7 @@ export const HTML_RESPONSE = `
   </head>
   <body>
     <div id="app"></div>
-    <script type="module" src="/@fs/${APP_PATH}/index.js"></script>
+    <script type="module" src="/@fs/${APP_PATH}/app.js"></script>
   </body>
 </html>
 `

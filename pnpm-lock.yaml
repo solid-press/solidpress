@@ -43,7 +43,6 @@ importers:
       '@rollup/plugin-node-resolve': ^13.3.0
       '@rollup/plugin-replace': ^4.0.0
       '@solidpress/alias': workspace:*
-      '@solidpress/theme-classic': workspace:*
       '@solidpress/types': workspace:*
       '@solidpress/utils': workspace:*
       '@types/debug': ^4.1.7
@@ -81,7 +80,6 @@ importers:
       '@rollup/plugin-node-resolve': 13.3.0_rollup@2.78.0
       '@rollup/plugin-replace': 4.0.0_rollup@2.78.0
       '@solidpress/alias': link:../solidpress-alias
-      '@solidpress/theme-classic': link:../solidpress-theme-classic
       '@solidpress/types': link:../solidpress-types
       '@solidpress/utils': link:../solidpress-utils
       debug: 4.3.4
@@ -122,6 +120,7 @@ importers:
   packages/solidpress-theme-classic:
     specifiers:
       '@solidpress/alias': workspace:*
+      '@solidpress/core': workspace:*
       clsx: ^1.2.1
       solid-js: ^1.4.8
     dependencies:
@@ -129,6 +128,7 @@ importers:
       solid-js: 1.4.8
     devDependencies:
       '@solidpress/alias': link:../solidpress-alias
+      '@solidpress/core': link:../solidpress
 
   packages/solidpress-types:
     specifiers:

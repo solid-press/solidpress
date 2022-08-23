@@ -22,6 +22,7 @@
     "solid-js": "^1.4.8"
   },
   "devDependencies": {
+    "@solidpress/core": "workspace:*",
     "@solidpress/alias": "workspace:*"
   }
 }
