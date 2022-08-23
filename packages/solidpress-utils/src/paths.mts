@@ -1,4 +1,4 @@
-import { isServer, EXTERNAL_URL_RE } from './constants'
+import { isServer, EXTERNAL_URL_RE } from './constants.mjs'
 
 const slashToDash = (s: string): string => {
   return s.replace(/\//g, '_')
@@ -10,10 +10,10 @@ export const pathToFile = (p: string): string => {
     pagePath += 'index'
   }
 
-  if (import.meta.env.DEV) {
+  if (process.env.DEV) {
     pagePath = `${pagePath}.md?t=${Date.now}`
   } else if (!isServer) {
-    const base = import.meta.env.BASE_URL
+    const base = process.env.BASE_URL
 
     pagePath = `${slashToDash(pagePath.slice(base.length))}.md`
     const pageHash = __SP_HASH_MAP__[pagePath.toLowerCase()]

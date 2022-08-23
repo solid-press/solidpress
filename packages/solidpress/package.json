@@ -4,7 +4,7 @@
   "description": "SolidPress core",
   "type": "module",
   "bin": {
-   "solidpress": "bin/solidpress.mjs"
+   "solidpress": "bin/solidpress.js"
   },
   "module": "lib/server/index.js",
   "main": "lib/server/index.js",

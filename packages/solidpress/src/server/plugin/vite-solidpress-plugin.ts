@@ -20,9 +20,9 @@ import type { SiteConfig } from '../config/types'
 export const ViteSolidPressPlugin = (
   siteConfig: SiteConfig,
   ssr = false,
-  pagesMap:{ [key: string]: string },
+  pagesMap: { [key: string]: string },
 ) => {
-  const { 
+  const {
     alias,
     configPath,
     deps,
@@ -54,7 +54,7 @@ export const ViteSolidPressPlugin = (
         }
       })
       // Merge user defined config with the basic config.
-      return isNil(vite) ? _config : mergeConfig(vite, _config)      
+      return isNil(vite) ? _config : mergeConfig(vite, _config)
     },
     async configResolved(_config) {
       config = _config
@@ -74,9 +74,9 @@ export const ViteSolidPressPlugin = (
           data = { ...site, head: [] }
         }
 
-        return `export default JSON.parse(${
+        return `export default JSON.parse(${JSON.stringify(
           JSON.stringify(data)
-        })`
+        )})`
       }
     },
     async transform(code, id) {
@@ -108,7 +108,7 @@ export const ViteSolidPressPlugin = (
         return replaced
       }
 
-      return null 
+      return null
     },
 
     generateBundle(_, bundle) {
@@ -144,7 +144,7 @@ function normalBuild(bundle: OutputBundle, pagesMap: { [key: string]: string }) 
       pagesMap[chunk.name.toLowerCase()] = fileHash
 
       // inject another chunk with the content stripped
-      bundle[`${name  }-lean`] = {
+      bundle[`${name}-lean`] = {
         ...chunk,
         fileName: chunk.fileName.replace(/\.js$/, '.lean.js'),
         code: chunk.code.replace(staticStripRE, '""')
