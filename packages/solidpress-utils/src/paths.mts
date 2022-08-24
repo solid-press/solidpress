@@ -10,8 +10,8 @@ export const pathToFile = (p: string): string => {
     pagePath += 'index'
   }
 
-  if (process.env.DEV) {
-    pagePath = `${pagePath}.md?t=${Date.now}`
+  if (import.meta.env.DEV) {
+    pagePath = `${pagePath}.md?t=${Date.now()}`
   } else if (!isServer) {
     const base = process.env.BASE_URL
 

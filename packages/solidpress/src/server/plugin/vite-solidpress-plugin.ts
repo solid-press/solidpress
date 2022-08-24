@@ -21,7 +21,7 @@ export const ViteSolidPressPlugin = (
   siteConfig: SiteConfig,
   ssr = false,
   pagesMap: { [key: string]: string },
-) => {
+): Plugin => {
   const {
     alias,
     configPath,
@@ -81,9 +81,14 @@ export const ViteSolidPressPlugin = (
     },
     async transform(code, id) {
       if (isPageFile(id)) {
-        // const { 
+        const { html, pageData, } = await render(code, id, config.publicDir)
+        const component = html2Component(html)
 
-        // } = await render(code, id, config.publicDir)
+        return ``
+        return processClientJS({
+          component,
+          pageData,
+        }, id)
       }
 
       return code
@@ -123,10 +128,10 @@ export const ViteSolidPressPlugin = (
   return plugin
 }
 
-function SSRBuild(bundle: OutputBundle) {
+function SSRBuild(bundle: OutputBundle): void {
   // ssr build:
   // delete all asset chunks
-  for (const name in bundle) {
+  for (const name of Object.keys(bundle)) {
     if (bundle[name]!.type === 'asset') {
       delete bundle[name]
     }
@@ -136,7 +141,7 @@ function SSRBuild(bundle: OutputBundle) {
 function normalBuild(bundle: OutputBundle, pagesMap: { [key: string]: string }) {
   // client build:
   // for each .md entry chunk, adjust its name to its correct path.
-  for (const name in bundle) {
+  for (const name of Object.keys(bundle)) {
     const chunk = bundle[name] as OutputChunk
     if (isPageChunk(chunk)) {
       // record page -> hash relations

@@ -25,6 +25,7 @@ export const createMarkdownRenderer = async ({
 
   const renderer = await createRenderer()
 
+  // eslint-disable-next-line no-param-reassign
   pages = pages.map(page => slash(page.replace(mdRE, '')))
   
   return async (
@@ -57,10 +58,9 @@ export const createMarkdownRenderer = async ({
     const html = renderer.render(content)
     const data = renderer.__data
 
-
     const pageData: PageData = {
       ...inferMeta(frontmatter, content),
-      secondaryTitle: frontmatter.secondaryTitle,
+      secondaryTitle: frontmatter.secondaryTitle || '',
       frontmatter,
       headers: data.headers || [],
       relativePath,

@@ -6,8 +6,8 @@
   "bin": {
    "solidpress": "bin/solidpress.js"
   },
-  "main": "lib/index.js",
-  "module": "lib/index.js",
+  "main": "lib/server/index.js",
+  "module": "lib/server/index.js",
   "license": "MIT",
   "repository": {
     "type": "git",
