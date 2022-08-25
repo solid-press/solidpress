@@ -49,6 +49,8 @@ importers:
       '@types/debug': ^4.1.7
       '@types/fs-extra': ^9.0.13
       '@types/markdown-it': ^12.2.3
+      '@types/markdown-it-attrs': ^4.1.0
+      '@types/markdown-it-emoji': ^2.0.2
       '@types/minimist': ^1.2.2
       '@types/node': ^18.7.6
       '@types/ramda': ^0.28.15
@@ -60,6 +62,10 @@ importers:
       gray-matter: ^4.0.3
       lru-cache: ^7.14.0
       markdown-it: ^13.0.1
+      markdown-it-anchor: ^8.6.4
+      markdown-it-attrs: ^4.1.4
+      markdown-it-emoji: ^2.0.2
+      markdown-it-toc-done-right: ^4.2.0
       minimist: ^1.2.6
       picocolors: ^1.0.0
       ramda: ^0.28.0
@@ -85,6 +91,8 @@ importers:
       '@solidpress/alias': link:../solidpress-alias
       '@solidpress/types': link:../solidpress-types
       '@solidpress/utils': link:../solidpress-utils
+      '@types/markdown-it-attrs': 4.1.0
+      '@types/markdown-it-emoji': 2.0.2
       babel-preset-solid: 1.4.8_@babel+core@7.18.13
       debug: 4.3.4
       esbuild: 0.15.5
@@ -93,6 +101,10 @@ importers:
       gray-matter: 4.0.3
       lru-cache: 7.14.0
       markdown-it: 13.0.1
+      markdown-it-anchor: 8.6.4_ea7kj7wzjkld5jo2noyjqxi764
+      markdown-it-attrs: 4.1.4_markdown-it@13.0.1
+      markdown-it-emoji: 2.0.2
+      markdown-it-toc-done-right: 4.2.0
       minimist: 1.2.6
       picocolors: 1.0.0
       ramda: 0.28.0
@@ -818,14 +830,24 @@ packages:
 
   /@types/linkify-it/3.0.2:
     resolution: {integrity: sha512-HZQYqbiFVWufzCwexrvh694SOim8z2d+xJl5UNamcvQFejLY/2YUtzXHYi3cHdI7PMlS8ejH2slRAOJQ32aNbA==}
-    dev: true
+
+  /@types/markdown-it-attrs/4.1.0:
+    resolution: {integrity: sha512-ILGUUJf7gydzxY3FrN2XwFT/f6rfxtkXZal478Jf4vqFn2AkQCwGCTx3TI+IPT+5ipOf+hUplem8wfVuCyK/Pw==}
+    dependencies:
+      '@types/markdown-it': 12.2.3
+    dev: false
+
+  /@types/markdown-it-emoji/2.0.2:
+    resolution: {integrity: sha512-2ln8Wjbcj/0oRi/6VnuMeWEHHuK8uapFttvcLmDIe1GKCsFBLOLBX+D+xhDa9oWOQV0IpvxwrSfKKssAqqroog==}
+    dependencies:
+      '@types/markdown-it': 12.2.3
+    dev: false
 
   /@types/markdown-it/12.2.3:
     resolution: {integrity: sha512-GKMHFfv3458yYy+v/N8gjufHO6MSZKCOXpZc5GXIWWy8uldwfmPn98vp81gZ5f9SVw8YYBctgfJ22a2d7AOMeQ==}
     dependencies:
       '@types/linkify-it': 3.0.2
       '@types/mdurl': 1.0.2
-    dev: true
 
   /@types/mdast/3.0.10:
     resolution: {integrity: sha512-W864tg/Osz1+9f4lrGTZpCSO5/z4608eUp19tbozkq2HJK6i3z1kT0H9tlADXuYIb1YYOBByU4Jsqkk75q48qA==}
@@ -2957,6 +2979,33 @@ packages:
   /markdown-extensions/1.1.1:
     resolution: {integrity: sha512-WWC0ZuMzCyDHYCasEGs4IPvLyTGftYwh6wIEOULOF0HXcqZlhwRzrK0w2VUlxWA98xnvb/jszw4ZSkJ6ADpM6Q==}
     engines: {node: '>=0.10.0'}
+    dev: false
+
+  /markdown-it-anchor/8.6.4_ea7kj7wzjkld5jo2noyjqxi764:
+    resolution: {integrity: sha512-Ul4YVYZNxMJYALpKtu+ZRdrryYt/GlQ5CK+4l1bp/gWXOG2QWElt6AqF3Mih/wfUKdZbNAZVXGR73/n6U/8img==}
+    peerDependencies:
+      '@types/markdown-it': '*'
+      markdown-it: '*'
+    dependencies:
+      '@types/markdown-it': 12.2.3
+      markdown-it: 13.0.1
+    dev: false
+
+  /markdown-it-attrs/4.1.4_markdown-it@13.0.1:
+    resolution: {integrity: sha512-53Zfv8PTb6rlVFDlD106xcZHKBSsRZKJ2IW/rTxEJBEVbVaoxaNsmRkG0HXfbHl2SK8kaxZ2QKqdthWy/QBwmA==}
+    engines: {node: '>=6'}
+    peerDependencies:
+      markdown-it: '>= 9.0.0'
+    dependencies:
+      markdown-it: 13.0.1
+    dev: false
+
+  /markdown-it-emoji/2.0.2:
+    resolution: {integrity: sha512-zLftSaNrKuYl0kR5zm4gxXjHaOI3FAOEaloKmRA5hijmJZvSjmxcokOLlzycb/HXlUFWzXqpIEoyEMCE4i9MvQ==}
+    dev: false
+
+  /markdown-it-toc-done-right/4.2.0:
+    resolution: {integrity: sha512-UB/IbzjWazwTlNAX0pvWNlJS8NKsOQ4syrXZQ/C72j+jirrsjVRT627lCaylrKJFBQWfRsPmIVQie8x38DEhAQ==}
     dev: false
 
   /markdown-it/13.0.1:
