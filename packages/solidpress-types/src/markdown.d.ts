@@ -1,4 +1,4 @@
-import type MD from 'markdown-it'
+import type { Processor as UnifiedProcessor } from 'unified'
 
 export type Header = {
   level: number
@@ -13,15 +13,15 @@ export type ParsedData = {
   headers?: Headers
 }
 
-export type MDEnhanced = {
+export type Processor = {
   __path: string
   __relativePath: string
   __data: ParsedData
-} & MD
+} & UnifiedProcessor
 
 export type MDOutput = {
   pageData: PageData
-  html: string
+  component: string
 }
 
 export type PageData = {

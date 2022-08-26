@@ -5,6 +5,7 @@
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",
     "solid-js": "^1.4.8",
-    "vite": "^2.9.7"
+    "vite": "^2.9.7",
+    "unified": "^10.1.2"
   }
 }

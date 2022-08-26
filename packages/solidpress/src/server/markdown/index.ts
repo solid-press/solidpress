@@ -23,7 +23,7 @@ export const createMarkdownRenderer = async ({
   pages,
 }: CreateMarkdownRendererParams): Promise<MDRenderer> => {
 
-  const renderer = await createRenderer()
+  const processor = await createRenderer()
 
   // eslint-disable-next-line no-param-reassign
   pages = pages.map(page => slash(page.replace(mdRE, '')))
@@ -48,27 +48,27 @@ export const createMarkdownRenderer = async ({
     const start = Date.now()
     const fileDir = path.dirname(file)
 
-    renderer.__path = file
-    renderer.__relativePath = relativePath
+    processor.__path = file
+    processor.__relativePath = relativePath
 
     // Parse raw markdown content into two parts
     // See https://github.com/jonschlinkert/gray-matter for more detail
     const { content, data: frontmatter } = parse(src)
 
-    const html = renderer.render(content)
-    const data = renderer.__data
+    const component = String(await processor.process(content))
+    const data = processor.__data
 
     const pageData: PageData = {
-      ...inferMeta(frontmatter, content),
-      secondaryTitle: frontmatter.secondaryTitle || '',
-      frontmatter,
-      headers: data.headers || [],
-      relativePath,
-    }
+      // ...inferMeta(frontmatter, content),
+      // secondaryTitle: frontmatter.secondaryTitle || '',
+      // frontmatter,
+      // headers: data.headers || [],
+      // relativePath,
+    } as PageData
 
     const output: MDOutput = {
       pageData,
-      html,
+      component,
     }
 
     debug(`[render page]: ${file} took ${Date.now() - start}`)

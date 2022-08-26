@@ -12,7 +12,7 @@ export interface Props {
 
 export default function Layout(props: ParentProps<Props>): JSX.Element {
   const route = useContext(RouterContext)
-  console.log(route)
+  const Component = (route as any).component
   return (
     <div>
       <NavBar />
@@ -20,6 +20,7 @@ export default function Layout(props: ParentProps<Props>): JSX.Element {
       <div class={clsx(props.wrapperClass)}>
         <ErrorBoundary fallback={(params: any) => params}>
           {props.children}
+          <Component />
         </ErrorBoundary>
       </div>
 

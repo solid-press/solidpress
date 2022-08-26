@@ -81,14 +81,9 @@ export const ViteSolidPressPlugin = (
     },
     async transform(code, id) {
       if (isPageFile(id)) {
-        const { html, pageData, } = await render(code, id, config.publicDir)
-        const component = html2Component(html)
+        const { component } = await render(code, id, config.publicDir)
 
-        return ``
-        return processClientJS({
-          component,
-          pageData,
-        }, id)
+        return component
       }
 
       return code
