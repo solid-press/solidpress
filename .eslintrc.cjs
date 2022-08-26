@@ -45,13 +45,7 @@ module.exports = {
     },
   },
   reportUnusedDisableDirectives: true,
-  plugins: [
-    'import',
-    'header',
-    '@typescript-eslint',
-    'solid',
-    'regexp',
-  ],
+  plugins: ['import', 'header', '@typescript-eslint', 'solid', 'regexp'],
   rules: {
     'array-callback-return': WARNING,
     camelcase: WARNING,
@@ -76,11 +70,11 @@ module.exports = {
     'no-constant-binary-expression': ERROR,
     'no-continue': OFF,
     'no-control-regex': WARNING,
-    'no-else-return': [WARNING, { allowElseIf: true }],
-    'no-empty': [WARNING, { allowEmptyCatch: true }],
+    'no-else-return': [WARNING, {allowElseIf: true}],
+    'no-empty': [WARNING, {allowEmptyCatch: true}],
     'no-lonely-if': WARNING,
     'no-nested-ternary': WARNING,
-    'no-param-reassign': [WARNING, { props: false }],
+    'no-param-reassign': [WARNING, {props: false}],
     'no-prototype-builtins': WARNING,
     'no-restricted-exports': OFF,
     'no-restricted-properties': [
@@ -188,9 +182,9 @@ module.exports = {
       })),
     ],
     'no-template-curly-in-string': WARNING,
-    'no-unused-expressions': [WARNING, { allowTaggedTemplates: true }],
+    'no-unused-expressions': [WARNING, {allowTaggedTemplates: true}],
     'no-useless-escape': WARNING,
-    'no-void': [ERROR, { allowAsStatement: true }],
+    'no-void': [ERROR, {allowAsStatement: true}],
     'prefer-destructuring': WARNING,
     'prefer-named-capture-group': WARNING,
     'prefer-template': WARNING,
@@ -228,23 +222,23 @@ module.exports = {
           {
             pattern: '*.+(css|sass|less|scss|pcss|styl)',
             group: 'unknown',
-            patternOptions: { matchBase: true },
+            patternOptions: {matchBase: true},
             position: 'after',
           },
-          { pattern: 'vite', group: 'builtin', position: 'before' },
-          { pattern: 'solid', group: 'builtin', position: 'before' },
-          { pattern: 'fs-extra', group: 'builtin' },
-          { pattern: 'ramda', group: 'external', position: 'before' },
-          { pattern: 'clsx', group: 'external', position: 'before' },
+          {pattern: 'vite', group: 'builtin', position: 'before'},
+          {pattern: 'solid', group: 'builtin', position: 'before'},
+          {pattern: 'fs-extra', group: 'builtin'},
+          {pattern: 'ramda', group: 'external', position: 'before'},
+          {pattern: 'clsx', group: 'external', position: 'before'},
           // 'Bit weird to not use the `import/internal-regex` option, but this
           // way, we can make `import type { Props } from "@theme/*"` appear
           // before `import styles from "styles.module.css"`, which is what we
           // always did. This should be removable once we stop using ambient
           // module declarations for theme aliases.
-          { pattern: '@theme/**', group: 'internal' },
-          { pattern: '@site/**', group: 'internal' },
-          { pattern: '@theme-init/**', group: 'internal' },
-          { pattern: '@theme-original/**', group: 'internal' },
+          {pattern: '@theme/**', group: 'internal'},
+          {pattern: '@site/**', group: 'internal'},
+          {pattern: '@theme-init/**', group: 'internal'},
+          {pattern: '@theme-original/**', group: 'internal'},
         ],
         pathGroupsExcludedImportTypes: [],
         // example: let `import './nprogress.css';` after importing others
@@ -262,7 +256,7 @@ module.exports = {
 
     '@typescript-eslint/ban-ts-comment': [
       ERROR,
-      { 'ts-expect-error': 'allow-with-description' },
+      {'ts-expect-error': 'allow-with-description'},
     ],
     '@typescript-eslint/consistent-indexed-object-style': [
       WARNING,
@@ -270,7 +264,7 @@ module.exports = {
     ],
     '@typescript-eslint/consistent-type-imports': [
       WARNING,
-      { disallowTypeAnnotations: false },
+      {disallowTypeAnnotations: false},
     ],
     '@typescript-eslint/explicit-module-boundary-types': WARNING,
     '@typescript-eslint/method-signature-style': ERROR,
@@ -282,11 +276,11 @@ module.exports = {
       },
     ],
     '@typescript-eslint/no-inferrable-types': OFF,
-    '@typescript-eslint/no-namespace': [WARNING, { allowDeclarations: true }],
+    '@typescript-eslint/no-namespace': [WARNING, {allowDeclarations: true}],
     'no-use-before-define': OFF,
     '@typescript-eslint/no-use-before-define': [
       ERROR,
-      { functions: false, classes: false, variables: true },
+      {functions: false, classes: false, variables: true},
     ],
     '@typescript-eslint/no-non-null-assertion': OFF,
     'no-redeclare': OFF,
@@ -297,7 +291,7 @@ module.exports = {
     // We don't provide any escape hatches for this rule. Rest siblings and
     // function placeholder params are always ignored, and any other unused
     // locals must be justified with a disable comment.
-    '@typescript-eslint/no-unused-vars': [ERROR, { ignoreRestSiblings: true }],
+    '@typescript-eslint/no-unused-vars': [ERROR, {ignoreRestSiblings: true}],
     '@typescript-eslint/prefer-optional-chain': ERROR,
     //  '@solidpress/no-untranslated-text': [
     //    WARNING,
@@ -338,14 +332,12 @@ module.exports = {
         'no-restricted-imports': [
           'error',
           {
-            patterns: ClientRestrictedImportPatterns.concat(
-              [
-                '../**',
-                './**',
-                // Allows relative styles module import with consistent filename
-                '!./styles.module.css',
-              ],
-            ),
+            patterns: ClientRestrictedImportPatterns.concat([
+              '../**',
+              './**',
+              // Allows relative styles module import with consistent filename
+              '!./styles.module.css',
+            ]),
           },
         ],
       },
@@ -390,10 +382,7 @@ module.exports = {
       },
     },
     {
-      files: [
-        '**/__tests__/**',
-        'packages/solidpress-plugin-debug/**',
-      ],
+      files: ['**/__tests__/**', 'packages/solidpress-plugin-debug/**'],
       rules: {
         '@solidpress/no-untranslated-text': OFF,
       },

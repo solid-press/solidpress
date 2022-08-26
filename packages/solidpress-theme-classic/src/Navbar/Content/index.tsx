@@ -1,20 +1,7 @@
-import NavbarContentLayout from './Layout'
+import NavbarContentLayout from './Layout';
 
-import type { JSX } from 'solid-js'
+import type {JSX} from 'solid-js';
 
-export default function(): JSX.Element {
-  return (
-    <NavbarContentLayout 
-      left={
-        <>
-          Logo
-        </>
-      }
-      right={
-        <>
-          Items
-        </>
-      }
-    />
-  )
+export default function (): JSX.Element {
+  return <NavbarContentLayout left={<>Logo</>} right={<>Items</>} />;
 }

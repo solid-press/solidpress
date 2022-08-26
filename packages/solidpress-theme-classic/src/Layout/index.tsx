@@ -1,18 +1,19 @@
-import clsx from 'clsx'
-import { useContext } from 'solid-js'
-import { ErrorBoundary, Show } from 'solid-js/web'
-import { RouterContext } from '@solidpress/core/lib/client'
-import NavBar from '@theme/Navbar'
+import clsx from 'clsx';
+import {useContext} from 'solid-js';
+import {ErrorBoundary, Show} from 'solid-js/web';
+import {RouterContext} from '@solidpress/core/lib/client';
+import NavBar from '@theme/Navbar';
 
-import type { ParentProps, JSX } from 'solid-js'
+import type {ParentProps, JSX} from 'solid-js';
 export interface Props {
-  noFooter?: boolean
-  wrapperClass?: string
+  noFooter?: boolean;
+  wrapperClass?: string;
 }
 
 export default function Layout(props: ParentProps<Props>): JSX.Element {
-  const route = useContext(RouterContext)
-  const Component = (route as any).component
+  const route = useContext(RouterContext);
+  console.log(route);
+  const Component = (route as any).component;
   return (
     <div>
       <NavBar />
@@ -25,10 +26,8 @@ export default function Layout(props: ParentProps<Props>): JSX.Element {
       </div>
 
       <Show when={!props.noFooter}>
-        <div>
-          Footer
-        </div>
+        <div>Footer</div>
       </Show>
     </div>
-  )
+  );
 }

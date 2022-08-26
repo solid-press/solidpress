@@ -1,7 +1,7 @@
-type HeadAttributes = { [key: string]: string }
+type HeadAttributes = {[key: string]: string};
 
 export type HeadConfig =
-| [string, HeadAttributes, string]
-| [string, HeadAttributes]
+  | [string, HeadAttributes, string]
+  | [string, HeadAttributes];
 
-export type HeadConfigs = HeadConfig[]
+export type HeadConfigs = HeadConfig[];

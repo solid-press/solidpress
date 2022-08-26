@@ -1,8 +1,8 @@
-import type { JSX } from 'solid-js'
+import type {JSX} from 'solid-js';
 
 export interface Props {
-  left: JSX.Element
-  right: JSX.Element
+  left: JSX.Element;
+  right: JSX.Element;
 }
 
 export default function NavbarContentLayout(props: any) {

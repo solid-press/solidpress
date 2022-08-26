@@ -14,10 +14,7 @@
     "jsx": "preserve",
     "jsxImportSource": "solid-js"
   },
-  "include": [
-    "./**/*",
-    "./**/.eslintrc.js"
-  ],
+  "include": ["./**/*", "./**/.eslintrc.js"],
   "exclude": [
     "node_modules",
     "coverage/**",
@@ -25,6 +22,6 @@
     "website/**",
     "**/__mocks__/**/*",
     "**/__fixtures__/**/*",
-    "demos/**",
+    "demos/**"
   ]
 }

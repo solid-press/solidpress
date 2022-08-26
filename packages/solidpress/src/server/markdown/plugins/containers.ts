@@ -26,4 +26,4 @@
 // export const containerPlugin: Plugin = () => {
 
 // }
-export default {}
+export default {};

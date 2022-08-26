@@ -1,34 +1,34 @@
-import type { Processor as UnifiedProcessor } from 'unified'
+import type {Processor as UnifiedProcessor} from 'unified';
 
 export type Header = {
-  level: number
-  title: string
-  slug: string
-}
+  level: number;
+  title: string;
+  slug: string;
+};
 
-export type Headers = Header[]
+export type Headers = Header[];
 
 export type ParsedData = {
-  links?: string[]
-  headers?: Headers
-}
+  links?: string[];
+  headers?: Headers;
+};
 
 export type Processor = {
-  __path: string
-  __relativePath: string
-  __data: ParsedData
-} & UnifiedProcessor
+  __path: string;
+  __relativePath: string;
+  __data: ParsedData;
+} & UnifiedProcessor;
 
 export type MDOutput = {
-  pageData: PageData
-  component: string
-}
+  pageData: PageData;
+  component: string;
+};
 
 export type PageData = {
-  description: string
-  frontmatter: { [key: string]: unknown }
-  headers: Headers
-  secondaryTitle?: string | boolean
-  title: string
-  relativePath: string
-}
+  description: string;
+  frontmatter: {[key: string]: unknown};
+  headers: Headers;
+  secondaryTitle?: string | boolean;
+  title: string;
+  relativePath: string;
+};

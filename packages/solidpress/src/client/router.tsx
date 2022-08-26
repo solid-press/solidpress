@@ -1,4 +1,4 @@
-import { createContext } from 'solid-js'
+import {createContext} from 'solid-js';
 // import { Suspense } from 'solid-js/web'
 // import { loadable } from '@solidpress/utils'
 // import NotFound from '@theme/NotFound'
@@ -7,11 +7,8 @@ import { createContext } from 'solid-js'
 // import type { JSX, ParentProps } from 'solid-js'
 // import type { ContextProviderComponent, } from './hooks/router'
 
-const RouterContext = createContext()
+const RouterContext = createContext();
 
-const { Provider: RouterProvider } = RouterContext
+const {Provider: RouterProvider} = RouterContext;
 
-export { 
-  RouterContext,
-  RouterProvider,
-}
+export {RouterContext, RouterProvider};

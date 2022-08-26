@@ -1,7 +1,6 @@
-import type { Alias } from 'vite'
-import path from 'path'
-import { DIST_CLIENT_DIR } from './paths'
-
+import type {Alias} from 'vite';
+import path from 'path';
+import {DIST_CLIENT_DIR} from './paths';
 
 export const resolveAlias = (_: string, themeDir: string): Alias[] => {
   const aliases: Alias[] = [
@@ -19,9 +18,9 @@ export const resolveAlias = (_: string, themeDir: string): Alias[] => {
     },
     {
       find: /^solidpress\/theme$/,
-      replacement: path.join(DIST_CLIENT_DIR, '/theme-classic/index')
-    }
-  ]
+      replacement: path.join(DIST_CLIENT_DIR, '/theme-classic/index'),
+    },
+  ];
 
-  return aliases
-}
+  return aliases;
+};

@@ -2,6 +2,6 @@
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-import cli from '../lib/server/cli.js'
+import cli from '../lib/server/cli.js';
 
-await cli()
+await cli();

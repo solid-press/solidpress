@@ -1,6 +1,6 @@
-import { mergeWithDefault } from './utils'
+import {mergeWithDefault} from './utils';
 
-import type { UserConfig, HeadConfigs,SiteData } from './types'
+import type {UserConfig, HeadConfigs, SiteData} from './types';
 
 const defaultSiteConfig = {
   base: '/',
@@ -10,21 +10,13 @@ const defaultSiteConfig = {
   description: 'A SolidPress application',
   appearance: true,
   locales: {},
-}
+};
 
 export const resolveSiteData = (config: UserConfig): SiteData => {
+  const headConfigs = resolveHeadData(config);
 
-  const headConfigs = resolveHeadData(config)
-
-  const {
-    appearance,
-    base,
-    description,
-    lang,
-    locales,
-    title,
-    secondaryTitle,
-  } = config
+  const {appearance, base, description, lang, locales, title, secondaryTitle} =
+    config;
 
   return mergeWithDefault(
     {
@@ -36,10 +28,12 @@ export const resolveSiteData = (config: UserConfig): SiteData => {
       locales,
       secondaryTitle,
       title,
-    }, defaultSiteConfig) as SiteData
-}
+    },
+    defaultSiteConfig,
+  ) as SiteData;
+};
 
 function resolveHeadData(config: UserConfig): HeadConfigs {
-  const head = config.head ?? []
-  return head.concat([])
+  const head = config.head ?? [];
+  return head.concat([]);
 }

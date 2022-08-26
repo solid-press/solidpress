@@ -1,1 +1,1 @@
-export { RouterContext } from './router'
+export {RouterContext} from './router';

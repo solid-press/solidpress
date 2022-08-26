@@ -1,8 +1,4 @@
-export function scrollTo(
-  el: HTMLElement,
-  hash: string,
-  smooth = false,
-): void {
+export function scrollTo(el: HTMLElement, hash: string, smooth = false): void {
   // let target: Element | null = null
 
   // try {
@@ -39,5 +35,5 @@ export function scrollTo(
   //     })
   //   }
   // }
-  console.log(el, hash, smooth)
+  console.log(el, hash, smooth);
 }

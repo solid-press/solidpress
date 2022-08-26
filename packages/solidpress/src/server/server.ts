@@ -1,19 +1,19 @@
-import type { ServerOptions } from 'vite';
-import { createServer as createViteServer } from 'vite'
-import SolidPlugin from 'vite-plugin-solid'
-import { resolveConfig } from './config'
-import { ViteSolidPressPlugin } from './plugin/vite-solidpress-plugin'
+import type {ServerOptions} from 'vite';
+import {createServer as createViteServer} from 'vite';
+import SolidPlugin from 'vite-plugin-solid';
+import {resolveConfig} from './config';
+import {ViteSolidPressPlugin} from './plugin/vite-solidpress-plugin';
 
 export async function createServer(
   root: string = process.cwd(),
   serverOptions: ServerOptions = {},
   // recreateServer: () => Promise<void>
 ) {
-  const config = await resolveConfig(root)
+  const config = await resolveConfig(root);
 
   if (serverOptions.base) {
-    config.site.base = serverOptions.base
-    delete serverOptions.base
+    config.site.base = serverOptions.base;
+    delete serverOptions.base;
   }
 
   return createViteServer({
@@ -22,9 +22,9 @@ export async function createServer(
     plugins: [
       ViteSolidPressPlugin(config, false, {}),
       SolidPlugin({
-        hot: false
+        hot: false,
       }),
     ],
-    server: serverOptions
-  })
+    server: serverOptions,
+  });
 }
