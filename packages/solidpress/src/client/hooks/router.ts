@@ -1,10 +1,10 @@
-import {createSignal} from 'solid-js';
-import {isServer} from 'solid-js/web';
-import {scrollTo, pathToFile, withBase} from '@solidpress/utils';
-import siteData from '@siteData';
+import { createSignal } from 'solid-js';
+import { isServer } from 'solid-js/web';
+import { scrollTo, pathToFile, withBase } from '@solidpress/utils';
+import { siteData$ } from '../contexts/site-data'
 
-import type {Accessor, Component, createContext} from 'solid-js';
-import type {PageData, Route} from '@solidpress/types';
+import type { Accessor, Component, createContext } from 'solid-js';
+import type { PageData, Route } from '@solidpress/types';
 
 export type ContextProviderComponent = ReturnType<
   typeof createContext
@@ -21,10 +21,6 @@ export type PageLoader = (
   isRetry?: boolean,
 ) => Promise<void>;
 
-const [siteData$, setSiteData] = createSignal(siteData);
-
-export {siteData$, setSiteData};
-
 export const createRouter = (fallback: Component): Router => {
   const [route, setRoute] = createSignal<Route>();
 
@@ -39,7 +35,7 @@ export const createRouter = (fallback: Component): Router => {
     }
 
     if (!isServer) {
-      history.replaceState({scrollPosition: window.scrollY}, document.title);
+      history.replaceState({ scrollPosition: window.scrollY }, document.title);
       history.pushState(null, '', newPath);
     }
 
@@ -58,7 +54,7 @@ export const createRouter = (fallback: Component): Router => {
       if (latestPendingPage === pendingPath) {
         latestPendingPage = null;
 
-        const {default: component, pageData: data} = pageData;
+        const { default: component, pageData: data } = pageData;
 
         if (!component) {
           throw new Error(
@@ -101,7 +97,7 @@ export const createRouter = (fallback: Component): Router => {
           window.__SP_HASH_MAP__ = await res.json();
           await loadPage(path, scrollPosition, true);
           return;
-        } catch {}
+        } catch { }
       }
 
       if (latestPendingPage === pendingPath) {
@@ -116,7 +112,7 @@ export const createRouter = (fallback: Component): Router => {
             title: '404 Not Found',
             description: 'Page Not Found',
             headers: [],
-            frontmatter: {sidebar: false, layout: 'page'},
+            frontmatter: { sidebar: false, layout: 'page' },
           } as PageData,
         });
       }
@@ -166,7 +162,7 @@ function injectDOMHook(
     (e: MouseEvent) => {
       const link = (e.target as Element).closest('a');
       if (link) {
-        const {href, origin, pathname, hash, search, target} = link;
+        const { href, origin, pathname, hash, search, target } = link;
         const currentUrl = window.location;
         const extMatch = pathname.match(/\.\w+$/);
         // only intercept inbound links
@@ -199,22 +195,15 @@ function injectDOMHook(
         }
       }
     },
-    {capture: true},
+    { capture: true },
   );
 
   window.addEventListener('popstate', (e: PopStateEvent) => {
     loadPage(location.href, e.state?.scrollPosition || 0);
   });
 
-  window.addEventListener('hashchange', ({preventDefault}: HashChangeEvent) => {
+  window.addEventListener('hashchange', ({ preventDefault }: HashChangeEvent) => {
     preventDefault();
   });
 }
 
-if (import.meta.hot) {
-  import.meta.hot.accept('/@siteData', (m) => {
-    if (m) {
-      setSiteData(m.default);
-    }
-  });
-}

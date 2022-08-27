@@ -1,11 +1,11 @@
-import type {JSX} from 'solid-js';
+import type { JSX } from 'solid-js';
 
 export interface Props {
   left: JSX.Element;
   right: JSX.Element;
 }
 
-export default function NavbarContentLayout(props: any) {
+export default function NavbarContentLayout(props: Props): JSX.Element {
   return (
     <div class="navbar__inner">
       <div class="navbar__items">{props.left}</div>
