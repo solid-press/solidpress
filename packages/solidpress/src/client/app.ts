@@ -6,7 +6,7 @@ import Root from './Root';
 const bootstrapApp = async () => {
   const { go, route } = createRouter(NotFound);
   await go();
-  render(() => Root({ route: route() }), document.querySelector('#app')!);
+  render(() => Root({ route }), document.querySelector('#app')!);
 };
 
 if (!isServer) {

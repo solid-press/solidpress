@@ -15,7 +15,7 @@ const defaultSiteConfig = {
 export const resolveSiteData = (config: UserConfig): SiteData => {
   const headConfigs = resolveHeadData(config);
 
-  const {appearance, base, description, lang, locales, title, secondaryTitle} =
+  const {appearance, base, description, lang, locales, themeConfig, title, secondaryTitle} =
     config;
 
   return mergeWithDefault(
@@ -27,6 +27,7 @@ export const resolveSiteData = (config: UserConfig): SiteData => {
       head: headConfigs,
       locales,
       secondaryTitle,
+      themeConfig,
       title,
     },
     defaultSiteConfig,

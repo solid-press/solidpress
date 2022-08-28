@@ -4,8 +4,10 @@ import type {SiteData} from './site';
 
 export type BuildType = ConfigEnv['command'];
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type UserConfig<ThemeConfig = any> = {
   appearance?: boolean;
+  themeConfig: ThemeConfig;
   extends?: UserConfigType<ThemeConfig>;
   base?: string;
   srcDir?: string;
@@ -31,6 +33,7 @@ export type UserConfig<ThemeConfig = any> = {
 
 export type ConfigType<T> = UserConfig<T> | Promise<UserConfig<T>>;
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type UserConfigType<ThemeConfig = any> =
   | ConfigType<ThemeConfig>
   | (() => ConfigType<ThemeConfig>);

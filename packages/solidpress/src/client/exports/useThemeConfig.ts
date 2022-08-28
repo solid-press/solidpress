@@ -1,0 +1,43 @@
+import { useSiteData } from './useSiteData'
+
+import type { Accessor } from 'solid-js'
+
+export interface NavItem {
+  label?: string
+  children?: NavItem[],
+  position: 'left' | 'right'
+  [key: string]: unknown
+}
+
+export interface Logo {
+  alt?: string
+  src: string
+  // src used when dark mode.
+  darkSrc?: string
+  // When href givin, logo will be wrapped with an a tag.
+  href?: string
+  // Only used when href were given.
+  target?: string
+  // since width and height in solid-js is strictly string
+  // so we only allow explicit unit-marked size indicator.
+  width?: string
+  height?: string
+  // customized class name for the logo wrapper.
+  class?: string
+}
+
+export interface Navbar {
+  items: NavItem[]
+  name?: string
+  logo?: Logo
+}
+
+export interface ThemeConfig {
+  navbar: Navbar
+}
+
+export const useThemeConfig = (): Accessor<ThemeConfig> => {
+ const { siteData } = useSiteData()
+
+ return () => siteData().themeConfig
+}

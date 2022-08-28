@@ -1,2 +1,5 @@
 export { useRoute } from './useRoute'
 export { useSiteData } from './useSiteData'
+export { useThemeConfig } from './useThemeConfig'
+export { useNavbar } from './useNavbar'
+export { useWithBase } from './useWithBase'

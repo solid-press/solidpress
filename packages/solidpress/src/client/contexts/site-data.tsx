@@ -1,19 +1,27 @@
 import { createContext, createSignal } from 'solid-js'
 import siteData from '@siteData'
 
-import type { JSX, ParentProps } from 'solid-js'
+import type { Accessor, JSX, ParentProps } from 'solid-js'
 import type { SiteData } from '@solidpress/types'
 
 const [siteData$, setSiteData] = createSignal<SiteData>(siteData)
 
-export const SiteDataContext = createContext<SiteData>()
+export interface SiteDataContextType {
+  siteData: Accessor<SiteData>
+}
+
+export const SiteDataContext = createContext<SiteDataContextType>()
 
 export const SiteDataProvider =
   (props: ParentProps): JSX.Element => {
     const { Provider } = SiteDataContext
 
+    const data = {
+      siteData: siteData$,
+    }
+
     return (
-      <Provider value={siteData$()}>
+      <Provider value={data}>
         {props.children}
       </Provider>
     )

@@ -15,7 +15,6 @@ export default function Layout(props: ParentProps<Props>): JSX.Element {
   return (
     <div>
       <NavBar />
-      { }
       <div class={clsx(props.wrapperClass)}>
         <ErrorBoundary fallback={(params: any) => params}>
           {props.children}

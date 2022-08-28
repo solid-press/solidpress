@@ -1,8 +1,6 @@
-import type {ParentProps, JSX} from 'solid-js';
+import type { ParentProps, JSX } from 'solid-js';
 
-export type Props = ParentProps<void>;
-
-export default function (props: Props): JSX.Element {
+export default function (props: ParentProps): JSX.Element {
   let navbarRef: HTMLElement | undefined;
 
   return (

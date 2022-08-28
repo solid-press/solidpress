@@ -23,6 +23,7 @@
   },
   "devDependencies": {
     "@solidpress/core": "workspace:*",
-    "@solidpress/alias": "workspace:*"
+    "@solidpress/alias": "workspace:*",
+    "@solidpress/utils": "workspace:*"
   }
 }

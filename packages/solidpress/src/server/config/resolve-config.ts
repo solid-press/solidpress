@@ -1,26 +1,26 @@
-import {loadConfigFromFile} from 'vite';
-import {createRequire} from 'module';
+import { loadConfigFromFile } from 'vite';
+import { createRequire } from 'module';
 import path from 'path';
 import fs from 'fs-extra';
-import {is} from 'ramda';
+import { is } from 'ramda';
 
 // import { DEFAULT_THEME_DIR } from '../paths'
-import {resolve} from '../utils/paths';
-import {resolveAlias} from '../alias';
-import {allowedExtensions, debug} from './constants';
-import {resolveSiteData} from './site';
-import {mergeUserConfig} from './utils';
-import {fetchPages} from './pages';
+import { resolve } from '../utils/paths';
+import { resolveAlias } from '../alias';
+import { allowedExtensions, debug } from './constants';
+import { resolveSiteData } from './site';
+import { mergeUserConfig } from './utils';
+import { fetchPages } from './pages';
 
-import type {BuildType, SiteConfig, UserConfig, UserConfigType} from './types';
+import type { BuildType, SiteConfig, UserConfig, UserConfigType } from './types';
 
 export async function resolveConfig(
   root: string,
   buildType: BuildType = 'serve',
   mode = 'development',
-) {
+): Promise<SiteConfig> {
   const solidPressRoot = path.resolve(root, '.solidpress');
-  const {config, configPath, deps} = await resolveUserConfig(
+  const { config, configPath, deps } = await resolveUserConfig(
     root,
     buildType,
     mode,
@@ -47,7 +47,7 @@ export async function resolveConfig(
     ...(config.excludes || []),
   ]);
 
-  const {vite} = config;
+  const { vite } = config;
 
   return {
     alias: resolveAlias('', themeDir),
@@ -68,7 +68,7 @@ export async function resolveUserConfig(
   root: string,
   buildType: BuildType,
   mode: string,
-): Promise<{configPath: string; config: UserConfig; deps: string[]}> {
+): Promise<{ configPath: string; config: UserConfig; deps: string[] }> {
   const solidPressRoot = path.resolve(root, '.solidpress');
 
   const configPath = allowedExtensions
@@ -83,7 +83,7 @@ export async function resolveUserConfig(
     debug('Could not load user config, using pre-defined config');
   } else {
     const userConfig = await loadConfigFromFile(
-      {command: buildType, mode},
+      { command: buildType, mode },
       configPath,
       root,
     );
@@ -91,7 +91,7 @@ export async function resolveUserConfig(
     debug(`config loaded successfully from ${configPath}`);
 
     if (userConfig) {
-      ({config} = userConfig);
+      config = userConfig.config as UserConfig
       deps = userConfig.dependencies.map((file) => resolve(file));
     }
   }
@@ -111,7 +111,7 @@ async function resolveConfigExtends(
     return mergeUserConfig(
       await resolveConfigExtends(resolved.extends),
       resolved,
-    );
+    ) as  UserConfig;
   }
   return resolved;
 }

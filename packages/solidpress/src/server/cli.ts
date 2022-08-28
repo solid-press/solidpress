@@ -26,7 +26,6 @@ export default async (): Promise<void> => {
         // }
       );
       await server.listen();
-      console.log();
       server.printUrls();
     };
     createDevServer().catch((err) => {

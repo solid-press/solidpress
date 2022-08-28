@@ -1,8 +1,8 @@
 import { useContext } from 'solid-js'
 import { SiteDataContext } from '../contexts'
 
-import type { SiteData } from '@solidpress/types'
+import type { SiteDataContextType } from '../contexts'
 
-export const useSiteData = (): SiteData | undefined => {
+export const useSiteData = (): SiteDataContextType | undefined => {
   return useContext(SiteDataContext)
 }
