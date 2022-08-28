@@ -1,0 +1,357 @@
+/**
+ * Colors Base
+ *
+ * These are the pure base color presets. Most of the time, you should not be
+ * using these colors directly in the theme but rather use "Colors Theme"
+ * instead because those are "Theme (light or dark)" dependant.
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --red-1: hsl(10, 100%, 96%);
+  --red-2: hsl(8, 93%, 88%);
+  --red-3: hsl(6, 92%, 81%);
+  --red-4: hsl(4, 91%, 74%);
+  --red-5: hsl(2, 90%, 67%);
+  --red-6: hsl(0, 90%, 60%);
+  --red-7: hsl(358, 68%, 47%);
+  --red-8: hsl(356, 77%, 36%);
+  --red-9: hsl(354, 88%, 25%);
+  --red-10: hsl(352, 100%, 15%);
+
+  --orange-1: hsl(39, 100%, 96%);
+  --orange-2: hsl(37, 100%, 86%);
+  --orange-3: hsl(35, 100%, 77%);
+  --orange-4: hsl(33, 100%, 68%);
+  --orange-5: hsl(31, 100%, 59%);
+  --orange-6: hsl(29, 100%, 50%);
+  --orange-7: hsl(27, 100%, 41%);
+  --orange-8: hsl(25, 100%, 33%);
+  --orange-9: hsl(23, 100%, 24%);
+  --orange-10: hsl(21, 100%, 15%);
+
+  --yellow-1: hsl(62, 100%, 96%);
+  --yellow-2: hsl(60, 97%, 87%);
+  --yellow-3: hsl(58, 96%, 79%);
+  --yellow-4: hsl(56, 96%, 70%);
+  --yellow-5: hsl(54, 96%, 62%);
+  --yellow-6: hsl(52, 96%, 54%);
+  --yellow-7: hsl(50, 86%, 44%);
+  --yellow-8: hsl(48, 90%, 34%);
+  --yellow-9: hsl(46, 95%, 24%);
+  --yellow-10: hsl(44, 100%, 15%);
+
+  --green-1: hsl(124, 100%, 96%);
+  --green-2: hsl(126, 69%, 81%);
+  --green-3: hsl(128, 63%, 68%);
+  --green-4: hsl(130, 60%, 56%);
+  --green-5: hsl(132, 69%, 45%);
+  --green-6: hsl(134, 100%, 35%);
+  --green-7: hsl(136, 100%, 30%);
+  --green-8: hsl(138, 100%, 25%);
+  --green-9: hsl(140, 100%, 20%);
+  --green-10: hsl(142, 100%, 15%);
+
+  --blue-1: hsl(202, 100%, 96%);
+  --blue-2: hsl(204, 97%, 88%);
+  --blue-3: hsl(206, 96%, 81%);
+  --blue-4: hsl(208, 96%, 74%);
+  --blue-5: hsl(210, 95%, 66%);
+  --blue-6: hsl(212, 95%, 59%);
+  --blue-7: hsl(214, 73%, 47%);
+  --blue-8: hsl(216, 81%, 35%);
+  --blue-9: hsl(218, 90%, 25%);
+  --blue-10: hsl(220, 100%, 15%);
+
+  --dark-red-1: hsl(352, 100%, 15%);
+  --dark-red-2: hsl(354, 91%, 24%);
+  --dark-red-3: hsl(356, 76%, 36%);
+  --dark-red-4: hsl(358, 63%, 49%);
+  --dark-red-5: hsl(0, 89%, 63%);
+  --dark-red-6: hsl(2, 90%, 68%);
+  --dark-red-7: hsl(4, 91%, 75%);
+  --dark-red-8: hsl(6, 91%, 82%);
+  --dark-red-9: hsl(9, 93%, 89%);
+  --dark-red-10: hsl(10, 100%, 96%);
+
+  --dark-orange-1: hsl(21, 100%, 15%);
+  --dark-orange-2: hsl(23, 94%, 24%);
+  --dark-orange-3: hsl(25, 89%, 35%);
+  --dark-orange-4: hsl(27, 83%, 45%);
+  --dark-orange-5: hsl(29, 100%, 56%);
+  --dark-orange-6: hsl(31, 100%, 57%);
+  --dark-orange-7: hsl(33, 100%, 67%);
+  --dark-orange-8: hsl(35, 100%, 77%);
+  --dark-orange-9: hsl(37, 100%, 86%);
+  --dark-orange-10: hsl(39, 100%, 96%);
+
+  --dark-yellow-1: hsl(44, 100%, 15%);
+  --dark-yellow-2: hsl(46, 89%, 25%);
+  --dark-yellow-3: hsl(48, 79%, 36%);
+  --dark-yellow-4: hsl(50, 69%, 48%);
+  --dark-yellow-5: hsl(52, 95%, 61%);
+  --dark-yellow-6: hsl(54, 96%, 64%);
+  --dark-yellow-7: hsl(56, 96%, 72%);
+  --dark-yellow-8: hsl(58, 96%, 80%);
+  --dark-yellow-9: hsl(60, 97%, 89%);
+  --dark-yellow-10: hsl(63, 100%, 97%);
+
+  --dark-green-1: hsl(142, 100%, 15%);
+  --dark-green-2: hsl(140, 92%, 21%);
+  --dark-green-3: hsl(138, 85%, 27%);
+  --dark-green-4: hsl(136, 79%, 34%);
+  --dark-green-5: hsl(134, 72%, 41%);
+  --dark-green-6: hsl(132, 67%, 46%);
+  --dark-green-7: hsl(130, 59%, 57%);
+  --dark-green-8: hsl(128, 62%, 69%);
+  --dark-green-9: hsl(126, 68%, 82%);
+  --dark-green-10: hsl(125, 100%, 96%);
+
+  --dark-blue-1: hsl(220, 100%, 15%);
+  --dark-blue-2: hsl(218, 93%, 24%);
+  --dark-blue-3: hsl(216, 79%, 36%);
+  --dark-blue-4: hsl(214, 67%, 49%);
+  --dark-blue-5: hsl(212, 95%, 63%);
+  --dark-blue-6: hsl(210, 95%, 67%);
+  --dark-blue-7: hsl(208, 95%, 74%);
+  --dark-blue-8: hsl(206, 96%, 81%);
+  --dark-blue-9: hsl(203, 97%, 89%);
+  --dark-blue-10: hsl(201, 100%, 96%);
+}
+
+/* neutral colors */
+:root {
+  --gray-1: #f7f8fa;
+  --gray-2: #f2f3f5;
+  --gray-3: #e5e6eb;
+  --gray-4: #c9cdd4;
+  --gray-5: #a9aeb8;
+  --gray-6: #86909c;
+  --gray-7: #6b7785;
+  --gray-8: #4e5969;
+  --gray-9: #272e3b;
+  --gray-10: #1d2129;
+}
+
+:root {
+  --sp-white: #ffffff;
+  --sp-white-soft: var(--gray-1);
+  --sp-white-mut: var(--gray-2);
+
+  --sp-black-pure: #000000;
+  --sp-black: var(--gray-10);
+  --sp-black-soft: var(--gray-9);
+  --sp-black-mute: var(--gray-8);
+
+  --sp-gray: var(--gray-6);
+  --sp-gray-light-1: var(--gray-5);
+  --sp-gray-light-2: var(--gray-4);
+  --sp-gray-light-3: var(--gray-3);
+  --sp-gray-light-4: var(--gray-2);
+  --sp-gray-light-5: var(--gray-1);
+  --sp-gray-dark-1: var(--gray-6);
+  --sp-gray-dark-2: var(--gray-7);
+  --sp-gray-dark-3: var(--gray-8);
+  --sp-gray-dark-4: var(--gray-9);
+  --sp-gray-dark-5: var(--gray-10);
+
+  --sp-divider-light-1: var(--gray-4);
+  --sp-divider-light-2: var(--gray-3);
+  --sp-divider-dark-1: var(--gray-6);
+  --sp-divider-dark-2: var(--gray-5);
+
+  --sp-text-light-1: var(--gray-10);
+  --sp-text-light-2: var(--gray-8);
+  --sp-text-light-3: var(--gray-6);
+  --sp-text-light-4: var(--gray-4);
+
+  --sp-text-dark-1: var(--gray-1);
+  --sp-text-dark-2: var(--gray-2);
+  --sp-text-dark-3: var(--gray-3);
+  --sp-text-dark-4: var(--gray-4);
+
+  --sp-green: var(--green-4);
+  --sp-green-light: var(--green-3);
+  --sp-green-lighter: var(--green-2);
+  --sp-green-dark: var(--dark-green-3);
+  --sp-green-darker: var(--dark-green-2);
+  --sp-green-dimm-1: var(--green-8);
+  --sp-green-dimm-2: var(--green-9);
+  --sp-green-dimm-3: var(--green-10);
+
+  --sp-yellow: var(--yellow-4);
+  --sp-yellow-light: var(--yellow-3);
+  --sp-yellow-lighter: var(--yellow-2);
+  --sp-yellow-dark: var(--dark-yellow-3);
+  --sp-yellow-darker: var(--dark-yellow-2);
+  --sp-yellow-dimm-1: var(--yellow-8);
+  --sp-yellow-dimm-2: var(--yellow-9);
+  --sp-yellow-dimm-3: var(--yellow-10);
+
+  --sp-red: var(--red-4);
+  --sp-red-light: var(--red-3);
+  --sp-red-lighter: var(--red-2);
+  --sp-red-dark: var(--dark-red-3);
+  --sp-red-darker: var(--dark-red-2);
+  --sp-red-dimm-1: var(--red-8);
+  --sp-red-dimm-2: var(--red-9);
+  --sp-red-dimm-3: var(--red-10);
+}
+
+/**
+ * Colors Theme
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-bg: var(--sp-white);
+  --sp-bg-soft: var(--sp-white-soft);
+  --sp-bg-mute: var(--sp-white-mute);
+  --sp-bg-alt: var(--sp-white-soft);
+
+  --sp-divider: var(--sp-divider-light-1);
+  --sp-divider-light: var(--sp-divider-light-2);
+
+  --sp-divider-inverse: var(--sp-divider-dark-1);
+  --sp-divider-inverse-light: var(--sp-divider-dark-2);
+
+  --sp-text-1: var(--gray-10);
+  --sp-text-2: var(--gray-8);
+  --sp-text-3: var(--gray-6);
+  --sp-text-4: var(--gray-4);
+
+  --sp-text-inverse-1: var(--sp-text-dark-1);
+  --sp-text-inverse-2: var(--sp-text-dark-2);
+  --sp-text-inverse-3: var(--sp-text-dark-3);
+  --sp-text-inverse-4: var(--sp-text-dark-4);
+
+  --sp-text-code: var(--sp-indigo-soft);
+
+  --sp-brand: var(--sp-green);
+  --sp-brand-light: var(--sp-green-light);
+  --sp-brand-lighter: var(--sp-green-lighter);
+  --sp-brand-dark: var(--sp-green-dark);
+  --sp-brand-darker: var(--sp-green-darker);
+
+  --sp-sponsor: #fd1d7c;
+}
+
+.dark {
+  --sp-bg: var(--sp-black-soft);
+  --sp-bg-soft: var(--sp-black-mute);
+  --sp-bg-mute: var(--sp-gray-dark-3);
+  --sp-bg-alt: var(--sp-black);
+
+  --sp-divider: var(--sp-divider-dark-1);
+  --sp-divider-light: var(--sp-divider-dark-2);
+
+  --sp-divider-inverse: var(--sp-divider-light-1);
+  --sp-divider-inverse-light: var(--sp-divider-light-2);
+
+  --sp-text-1: var(--sp-text-dark-1);
+  --sp-text-2: var(--sp-text-dark-2);
+  --sp-text-3: var(--sp-text-dark-3);
+  --sp-text-4: var(--sp-text-dark-4);
+
+  --sp-text-inverse-1: var(--sp-text-light-1);
+  --sp-text-inverse-2: var(--sp-text-light-2);
+  --sp-text-inverse-3: var(--sp-text-light-3);
+  --sp-text-inverse-4: var(--sp-text-light-4);
+
+  --sp-text-code: var(--sp-indigo-lighter);
+}
+
+/**
+ * Typography
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-font-family-base: 'Inter var experimental', 'Inter var', -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+    'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --sp-font-family-mono: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/**
+ * Shadows
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-shadow-1: 0 1px 2px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+  --sp-shadow-2: 0 3px 12px rgba(0, 0, 0, 0.07), 0 1px 4px rgba(0, 0, 0, 0.07);
+  --sp-shadow-3: 0 12px 32px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.08);
+  --sp-shadow-4: 0 14px 44px rgba(0, 0, 0, 0.12), 0 3px 9px rgba(0, 0, 0, 0.12);
+  --sp-shadow-5: 0 18px 56px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(0, 0, 0, 0.16);
+}
+
+/**
+ * Z-indexes
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-z-index-local-nav: 10;
+  --sp-z-index-nav: 20;
+  --sp-z-index-backdrop: 30;
+  --sp-z-index-sidebar: 40;
+  --sp-z-index-footer: 50;
+}
+
+/**
+ * Icons
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-icon-copy: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(128,128,128,1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2'/%3E%3C/svg%3E");
+  --sp-icon-copied: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' height='20' width='20' stroke='rgba(128,128,128,1)' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-6 9 2 2 4-4'/%3E%3C/svg%3E");
+}
+
+/**
+ * Layouts
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-layout-max-width: 1440px;
+}
+
+/**
+ * Component: Code
+ * -------------------------------------------------------------------------- */
+
+.dark {
+  --spode-block-bg: var(--sp-bg-alt);
+}
+
+
+/**
+ * Component: Nav
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-nav-height: var(--sp-nav-height-mobile);
+  --sp-nav-height-mobile: 56px;
+  --sp-nav-height-desktop: 72px;
+}
+
+@media (min-width: 960px) {
+  :root {
+    --sp-nav-height: var(--sp-nav-height-desktop);
+  }
+}
+
+/**
+ * Component: Sidebar
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-sidebar-width: 272px;
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --sp-home-hero-name-color: var(--sp-brand);
+  --sp-home-hero-name-background: transparent;
+
+  --sp-home-hero-image-background-image: none;
+  --sp-home-hero-image-filter: none;
+}
