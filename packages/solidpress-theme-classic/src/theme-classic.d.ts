@@ -39,6 +39,7 @@ declare module '@theme/Link' {
   import type { ParentProps, JSX } from 'solid-js'
 
   export interface Props extends ParentProps, JSX.CustomAttributes<never> {
+    active?: boolean
     href?: string
     noIcon?: boolean
   }
@@ -81,15 +82,15 @@ declare module '@theme/NavbarItem/ComponentTypes' {
 }
 
 declare module '@theme/NavbarItem' {
-  import type {
-    Props as DefaultNavbarItemProps
-  } from '@theme/NavbarItem/DefaultNavbarItem'
+  import type { Props as DefaultNavbarItemProps } from '@theme/NavbarItem/DefaultNavbarItem'
+  import type { Props as DocNavbarItemProps } from '@theme/NavbarItem/DocNavbarItem'
   import type { JSX } from 'solid-js'
 
   type AnchorAttrs = JSX.IntrinsicElements['a']
 
   export type TypedNavbarItemProps =
     | (Readonly<{ type?: 'default' }> & DefaultNavbarItemProps)
+    | (Readonly<{ type: 'doc' }> & DocNavbarItemProps)
 
   export type Props = AnchorAttrs & Readonly<{
     position?: 'left' | 'right'
@@ -113,9 +114,22 @@ declare module '@theme/NavbarItem/DefaultNavbarItem' {
     mobile?: boolean
   }> & CommonProps
 
-  export default function DefaultNavItem(props: Props): JSX.Element
+  export default function DefaultNavbarItem(props: Props): JSX.Element
 }
 
+declare module '@theme/NavbarItem/DocNavbarItem' {
+  import type {
+    Props as DefaultNavbarItemProps
+  } from '@theme/NavbarItem/DefaultNavbarItem'
+
+  import type { JSX } from 'solid-js'
+
+  export type Props = Readonly<{
+    docId: string
+  }> & DefaultNavbarItemProps
+
+  export default function DocNavbarItem(props: Props): JSX.Element | null
+}
 declare module '@theme/NavLink' {
   import type { JSX } from 'solid-js'
   import type { NavItem } from '@solidpress/types'
@@ -125,6 +139,7 @@ declare module '@theme/NavLink' {
     html?: string
     to?: string
     isDropdownLink?: boolean
+    active?: boolean
   } & JSX.CustomAttributes<never> & NavItem
 
   export default function NavLink(props: Props): JSX.Element

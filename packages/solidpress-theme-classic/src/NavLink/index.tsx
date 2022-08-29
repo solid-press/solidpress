@@ -6,7 +6,6 @@ import type { Props } from '@theme/NavLink'
 import type { JSX } from 'solid-js'
 
 import styles from './styles.module.css'
-console.log(styles)
 
 const NavLink = (props: Props): JSX.Element => {
   const withBase = useWithBase()
@@ -25,9 +24,9 @@ const NavLink = (props: Props): JSX.Element => {
 
   return (
     <Link
+      active={props.active || active()}
       classList={{
         [styles.navlink]: true,
-        [styles.active]: active(),
       }}
       href={href()}
       noIcon

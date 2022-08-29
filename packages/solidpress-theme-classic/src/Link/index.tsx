@@ -32,6 +32,10 @@ const Link = (props: Props): JSX.Element => {
   return (
     <Dynamic  
       component={props.href ? 'a' : 'span'}
+      classList={{
+        ...(props.classList || {}),
+        active: props.active,
+      }}
       {...anchorAttrs()}
       {...rest}
     >
