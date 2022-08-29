@@ -10,7 +10,7 @@
     "module": "esnext",
     "target": "esnext",
     "jsxImportSource": "solid-js",
-    "lib": ["ESNext", "dom"]
+    "lib": ["ESNext", "dom"],
   },
   "include": [
     "src/nprogress.ts",

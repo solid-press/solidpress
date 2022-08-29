@@ -1,4 +1,5 @@
-import {isServer, EXTERNAL_URL_RE} from './constants.mjs';
+import { isServer } from './constants.mjs';
+import { isExternalLink } from './link.mjs';
 
 const slashToDash = (s: string): string => {
   return s.replace(/\//g, '_');
@@ -30,5 +31,5 @@ export const joinPath = (base: string, seg: string): string => {
 };
 
 export const withBase = (path: string, base: string): string => {
-  return EXTERNAL_URL_RE.test(path) ? path : joinPath(base, path);
+  return isExternalLink(path) ? path : joinPath(base, path);
 };

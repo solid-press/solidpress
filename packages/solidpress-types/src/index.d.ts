@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 import type { lazy } from 'solid-js';
 
 export type { Component } from 'solid-js';

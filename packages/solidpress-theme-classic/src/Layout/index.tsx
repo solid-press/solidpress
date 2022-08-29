@@ -4,6 +4,9 @@ import { useRoute } from '@solidpress/core/lib/client';
 import NavBar from '@theme/Navbar';
 
 import type { ParentProps, JSX } from 'solid-js';
+
+import '../styles/vars.css'
+import '../styles/base.css'
 export interface Props {
   noFooter?: boolean;
   wrapperClass?: string;

@@ -1,0 +1,5 @@
+#navbar {
+  height: var(--sp-nav-height);
+  z-index: var(--sp-z-index-nav);
+  padding: var(--sp-nav-padding-vertical) var(--sp-nav-padding-horizontal);
+}

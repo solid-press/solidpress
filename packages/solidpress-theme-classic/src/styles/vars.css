@@ -225,11 +225,11 @@
 
   --sp-text-code: var(--sp-indigo-soft);
 
-  --sp-brand: var(--sp-green);
-  --sp-brand-light: var(--sp-green-light);
-  --sp-brand-lighter: var(--sp-green-lighter);
-  --sp-brand-dark: var(--sp-green-dark);
-  --sp-brand-darker: var(--sp-green-darker);
+  --sp-brand: var(--sp-blue);
+  --sp-brand-light: var(--sp-blue-light);
+  --sp-brand-lighter: var(--sp-blue-lighter);
+  --sp-brand-dark: var(--sp-blue-dark);
+  --sp-brand-darker: var(--sp-blue-darker);
 
   --sp-sponsor: #fd1d7c;
 }
@@ -328,6 +328,8 @@
   --sp-nav-height: var(--sp-nav-height-mobile);
   --sp-nav-height-mobile: 56px;
   --sp-nav-height-desktop: 72px;
+  --sp-nav-padding-vertical: 8px;
+  --sp-nav-padding-horizontal: 16px;
 }
 
 @media (min-width: 960px) {

@@ -2,7 +2,7 @@ import { isServer, For } from 'solid-js/web'
 import { useWithBase } from '@solidpress/core/lib/client'
 
 import type { JSX } from 'solid-js'
-import type { Logo } from '@solidpress/core/lib/client/exports/useThemeConfig'
+import type { Logo } from '@solidpress/types'
 
 type Props = {
   logo: Logo | undefined

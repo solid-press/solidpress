@@ -13,9 +13,9 @@
   },
   "scripts": {
     "build": "",
-    "dev": "run-p build:watch",
+    "dev": "run-p copy:watch build:watch",
     "build:watch": "tsc --build --watch",
-    "copy:watch": ""
+    "copy:watch": "node ../../scripts/copy-files.mjs --watch"
   },
   "dependencies": {
     "clsx": "^1.2.1",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@solidpress/core": "workspace:*",
     "@solidpress/alias": "workspace:*",
-    "@solidpress/utils": "workspace:*"
+    "@solidpress/utils": "workspace:*",
+    "@solidpress/types": "workspace:*"
   }
 }

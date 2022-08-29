@@ -1,7 +1,8 @@
 export interface NavItem {
+  activeMatch?: string
   label?: string
-  children?: NavItem[],
-  position: 'left' | 'right'
+  children?: NavItem[]
+  position?: 'left' | 'right'
   [key: string]: unknown
 }
 
