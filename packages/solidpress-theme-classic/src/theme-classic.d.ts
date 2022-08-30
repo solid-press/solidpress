@@ -85,6 +85,8 @@ declare module '@theme/NavbarItem' {
   import type { Props as DefaultNavbarItemProps } from '@theme/NavbarItem/DefaultNavbarItem'
   import type { Props as DocNavbarItemProps } from '@theme/NavbarItem/DocNavbarItem'
   import type { Props as HtmlNavbarItemProps } from '@theme/NavbarItem/HtmlNavbarItem'
+  import type { Props as DocsVersionNavbarItemProps } from '@theme/NavbarItem/DocsVersionNavbarItem'
+  import type { Props as DocSidebarNavbarItemProps } from '@theme/NavbarItem/DocSidebarNavItem'
   import type { JSX } from 'solid-js'
 
   type AnchorAttrs = JSX.IntrinsicElements['a']
@@ -93,12 +95,16 @@ declare module '@theme/NavbarItem' {
     | (Readonly<{ type?: 'default' }> & DefaultNavbarItemProps)
     | (Readonly<{ type: 'doc' }> & DocNavbarItemProps)
     | (Readonly<{ type: 'html' }> & HtmlNavbarItemProps)
+    | (Readonly<{ type: 'docsVersion'}> & DocsVersionNavbarItemProps)
+    | (Readonly<{ type: 'docSidebar'}> & DocSidebarNavbarItemProps)
 
   export type Props = AnchorAttrs & Readonly<{
     position?: 'left' | 'right'
   }> & (
       | TypedNavbarItemProps
     )
+
+  export type NavbarItemType = Props['type']
 
   export default function NavbarItem(props: Props): JSX.Element
 }
@@ -154,6 +160,16 @@ declare module '@theme/NavbarItem/DocsVersionNavbarItem' {
 
   export type Props = DefaultNavbarItemProps
   export default function DocsVersionNavbarItem(props: Props): JSX.Element
+}
+
+declare module '@theme/NavbarItem/DocSidebarNavItem' {
+  import type { Props as DefaultNavbarItemProps } from '@theme/NavbarItem/DefaultNavbarItem'
+  import type { JSX } from 'solid-js'
+
+  export type Props = Readonly<{
+    sidebarId: string
+  }> & DefaultNavbarItemProps
+  export default function DocSidebarNavItem(props: Props): JSX.Element
 }
 
 declare module '@theme/NavLink' {
