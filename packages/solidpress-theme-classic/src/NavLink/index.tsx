@@ -30,6 +30,7 @@ const NavLink = (props: Props): JSX.Element => {
       }}
       href={href()}
       noIcon
+      {...props}
     >
       {props.label}
     </Link>

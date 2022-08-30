@@ -13,6 +13,14 @@ export const normalize = (path: string): string => {
   return decodeURI(path).replace(HASH_RE, '').replace(EXT_RE, '')
 }
 
+export const asRegxrMatch =
+  (matchString?: string, val?: string): boolean => {
+    if (isNil(matchString) || isNil(val)) {
+      return false
+    }
+    return new RegExp(matchString, 'gi').test(val)
+  }
+
 export const isActive = (
   path: string,
   matchPath?: string,
@@ -25,7 +33,7 @@ export const isActive = (
   const normalizedPath = normalize(`/${path}`)
 
   if (asRegxr) {
-    return new RegExp(matchPath).test(normalizedPath)
+    return asRegxrMatch(matchPath, normalizedPath)
   }
 
   if (normalize(matchPath) !== normalizedPath) {
@@ -39,4 +47,11 @@ export const isActive = (
   }
 
   return true
+}
+
+export const isSamePath = (
+  p1: string | undefined,
+  p2: string | undefined
+): boolean => {
+  return normalize(p1) === normalize(p2)
 }
