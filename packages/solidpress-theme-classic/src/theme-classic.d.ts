@@ -146,6 +146,16 @@ declare module '@theme/NavbarItem/HtmlNavbarItem' {
   export default function HtmlNavbarItem(props: Props): JSX.Element
 }
 
+declare module '@theme/NavbarItem/DocsVersionNavbarItem' {
+  import type {
+    Props as DefaultNavbarItemProps
+  } from '@theme/NavbarItem/DefaultNavbarItem'
+  import type { JSX } from 'solid-js'
+
+  export type Props = DefaultNavbarItemProps
+  export default function DocsVersionNavbarItem(props: Props): JSX.Element
+}
+
 declare module '@theme/NavLink' {
   import type { JSX } from 'solid-js'
   import type { NavItem } from '@solidpress/types'
