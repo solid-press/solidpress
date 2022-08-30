@@ -84,6 +84,7 @@ declare module '@theme/NavbarItem/ComponentTypes' {
 declare module '@theme/NavbarItem' {
   import type { Props as DefaultNavbarItemProps } from '@theme/NavbarItem/DefaultNavbarItem'
   import type { Props as DocNavbarItemProps } from '@theme/NavbarItem/DocNavbarItem'
+  import type { Props as HtmlNavbarItemProps } from '@theme/NavbarItem/HtmlNavbarItem'
   import type { JSX } from 'solid-js'
 
   type AnchorAttrs = JSX.IntrinsicElements['a']
@@ -91,6 +92,7 @@ declare module '@theme/NavbarItem' {
   export type TypedNavbarItemProps =
     | (Readonly<{ type?: 'default' }> & DefaultNavbarItemProps)
     | (Readonly<{ type: 'doc' }> & DocNavbarItemProps)
+    | (Readonly<{ type: 'html' }> & HtmlNavbarItemProps)
 
   export type Props = AnchorAttrs & Readonly<{
     position?: 'left' | 'right'
@@ -130,6 +132,20 @@ declare module '@theme/NavbarItem/DocNavbarItem' {
 
   export default function DocNavbarItem(props: Props): JSX.Element | null
 }
+
+declare module '@theme/NavbarItem/HtmlNavbarItem' {
+  import type {
+    Props as DefaultNavbarItemProps
+  } from '@theme/NavbarItem/DefaultNavbarItem'
+  import type { JSX } from 'solid-js'
+
+  export type Props = Readonly<{
+    value: string
+  }> & DefaultNavbarItemProps
+
+  export default function HtmlNavbarItem(props: Props): JSX.Element
+}
+
 declare module '@theme/NavLink' {
   import type { JSX } from 'solid-js'
   import type { NavItem } from '@solidpress/types'
