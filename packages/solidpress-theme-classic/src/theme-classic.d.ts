@@ -3,7 +3,7 @@
 declare module '@theme/Layout' {
   import type { ParentProps, JSX } from 'solid-js';
 
-  export interface Props extends ParentProps {}
+  export interface Props extends ParentProps { }
 
   export default function Layout(props: Props): JSX.Element;
 }
@@ -11,7 +11,7 @@ declare module '@theme/Layout' {
 declare module '@theme/Navbar' {
   import type { ParentProps, JSX } from 'solid-js';
 
-  export interface Props extends ParentProps {}
+  export interface Props extends ParentProps { }
 
   export default function NavBar(props: Props): JSX.Element;
 }
@@ -46,7 +46,7 @@ declare module '@theme/Link' {
 declare module '@theme/Navbar/Layout' {
   import type { ParentProps, JSX } from 'solid-js';
 
-  export interface Props extends ParentProps {}
+  export interface Props extends ParentProps { }
 
   export default function Layout(props: Props): JSX.Element;
 }
@@ -54,7 +54,7 @@ declare module '@theme/Navbar/Layout' {
 declare module '@theme/Navbar/Content' {
   import type { ParentProps, JSX } from 'solid-js';
 
-  export interface Props extends ParentProps {}
+  export interface Props extends ParentProps { }
 
   export default function Content(props: Props): JSX.Element;
 }
@@ -79,6 +79,8 @@ declare module '@theme/NavbarItem' {
   import type { Props as HtmlNavbarItemProps } from '@theme/NavbarItem/HtmlNavbarItem'
   import type { Props as DocsVersionNavbarItemProps } from '@theme/NavbarItem/DocsVersionNavbarItem'
   import type { Props as DocSidebarNavbarItemProps } from '@theme/NavbarItem/DocSidebarNavItem'
+  import type { Props as DropdownNavbarItemProps } from '@theme/NavbarItem/DropdownNavbarItem'
+  import type { Props as LocaleDropdownNavbarItemProps } from '@theme/NavbarItem/LocaleDropdownNavbarItem'
   import type { JSX } from 'solid-js'
 
   type AnchorAttrs = JSX.IntrinsicElements['a']
@@ -94,6 +96,9 @@ declare module '@theme/NavbarItem' {
     position?: 'left' | 'right'
   } & (
       | LinkLikeNavbarItemProps
+      | ({ type: 'dropdown' } & DropdownNavbarItemProps)
+      | ({ type: 'localeDropdown' } & LocaleDropdownNavbarItemProps)
+      // | ({ type: 'docsVersionDropdown'} & )
     )
 
   export type NavbarItemType = Props['type']
@@ -176,24 +181,38 @@ declare module '@theme/NavbarItem/DropdownNavbarItem' {
     items: readonly LinkLikeNavbarItemProps[]
   } & NavLinkProps
 
-  export interface Props extends CommonProps  {
+  export interface Props extends CommonProps {
     mobile?: boolean
   }
 
   export default function DropdownNavbarItem(props: Props): JSX.Element
 }
 
+declare module '@theme/NavbarItem/LocaleDropdownNavbarItem' {
+  import type { Props as DropdownNavbarItemProps } from '@theme/NavbarItem/DropdownNavbarItem'
+  import type { LinkLikeNavbarItemProps } from '@theme/NavbarItem';
+  import type { JSX } from 'solid-js'
+
+  export type Props = {
+    dropdownItemsBefore: LinkLikeNavbarItemProps[]
+    dropdownItemsAfter: LinkLikeNavbarItemProps[]
+  } & DropdownNavbarItemProps
+
+  export default function LocaleDropdownNavbarItem(props: Props): JSX.Element
+}
+
 declare module '@theme/NavLink' {
   import type { JSX } from 'solid-js'
   import type { NavItem } from '@solidpress/types'
 
-  export type Props = {
+  export type Props = NavItem & JSX.CustomAttributes<never> & {
     href?: string
     html?: string
     to?: string
     isDropdownLink?: boolean
     active?: boolean
-  } & JSX.CustomAttributes<never> & NavItem
+    label?: NavItem['label'] | JSX.Element
+  }
 
   export default function NavLink(props: Props): JSX.Element
 }
