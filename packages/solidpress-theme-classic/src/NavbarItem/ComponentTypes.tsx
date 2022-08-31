@@ -7,7 +7,7 @@ import DocSidebarNavbarItem from '@theme/NavbarItem/DocSidebarNavItem'
 import HtmlNavbarItem from '@theme/NavbarItem/HtmlNavbarItem'
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem'
 import LocaleDropdownNavbarItem from '@theme/NavbarItem/LocaleDropdownNavbarItem'
-
+import DocsVersionDropdown from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
 
 const COMPONENT_TYPES: ComponentTypes = {
   default: DefaultNavbarItem,
@@ -16,7 +16,8 @@ const COMPONENT_TYPES: ComponentTypes = {
   docSidebar: DocSidebarNavbarItem,
   html: HtmlNavbarItem,
   dropdown: DropdownNavbarItem,
-  localeDropdown: LocaleDropdownNavbarItem
+  localeDropdown: LocaleDropdownNavbarItem,
+  docsVersionDropdown: DocsVersionDropdown,
 }
 
 export default COMPONENT_TYPES
