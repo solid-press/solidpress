@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import {defineConfig, mergeConfig} from 'vite';
-import type {Plugin, ResolvedConfig} from 'vite';
-import {equals, isNil} from 'ramda';
-import {createMarkdownRenderer} from '../markdown';
-import {solidPressMiddleware} from './middleware';
+import { defineConfig, mergeConfig } from 'vite';
+import type { Plugin, ResolvedConfig } from 'vite';
+import { equals, isNil } from 'ramda';
+import { createMarkdownRenderer } from '../markdown';
+import { solidPressMiddleware } from './middleware';
 import {
   SITE_DATA_PATH,
   staticInjectMarkerRE,
@@ -12,17 +12,17 @@ import {
   staticStripRE,
   hashRE,
 } from './constants';
-import {isPageChunk, isPageFile, injectPageData} from './utils';
+import { isPageChunk, isPageFile, injectPageData } from './utils';
 
-import type {OutputBundle, OutputChunk} from 'rollup';
-import type {SiteConfig} from '../config/types';
+import type { OutputBundle, OutputChunk } from 'rollup';
+import type { SiteConfig } from '../config/types';
 
 export const ViteSolidPressPlugin = (
   siteConfig: SiteConfig,
   ssr = false,
-  pagesMap: {[key: string]: string},
+  pagesMap: { [key: string]: string },
 ): Plugin => {
-  const {alias, configPath, deps, srcDir, site, vite, pages} = siteConfig;
+  const { alias, configPath, deps, srcDir, site, vite, pages } = siteConfig;
 
   let config: ResolvedConfig;
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -63,7 +63,7 @@ export const ViteSolidPressPlugin = (
       if (equals(id, SITE_DATA_PATH)) {
         let data = site;
         if (equals(config.command, 'build')) {
-          data = {...site, head: []};
+          data = { ...site, head: [] };
         }
 
         return `export default JSON.parse(${JSON.stringify(
@@ -73,7 +73,7 @@ export const ViteSolidPressPlugin = (
     },
     async transform(code, id) {
       if (isPageFile(id)) {
-        const {component, pageData} = await render(code, id, config.publicDir);
+        const { component, pageData } = await render(code, id, config.publicDir);
 
         return injectPageData(component, pageData);
       }
@@ -125,7 +125,7 @@ function SSRBuild(bundle: OutputBundle): void {
   }
 }
 
-function normalBuild(bundle: OutputBundle, pagesMap: {[key: string]: string}) {
+function normalBuild(bundle: OutputBundle, pagesMap: { [key: string]: string }) {
   // client build:
   // for each .md entry chunk, adjust its name to its correct path.
   for (const name of Object.keys(bundle)) {

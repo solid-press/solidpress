@@ -26,6 +26,7 @@ export default defineConfig({
         width: '36px',
         height: '40px',
       },
-    }
-  }
+    },
+    versioned: true,   
+  },
 })

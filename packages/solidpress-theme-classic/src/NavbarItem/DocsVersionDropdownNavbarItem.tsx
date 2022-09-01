@@ -5,7 +5,7 @@ import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem'
 import type { Props } from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
 import type { JSX } from 'solid-js'
 
-const DocsVErsionDropdownNavbarItem = (props: Props): JSX.Element => {
+const DocsVersionDropdownNavbarItem = (props: Props): JSX.Element => {
   const versions = [] // get versions later
 
   const onItemClick = (name: string) => {
@@ -47,4 +47,4 @@ const DocsVErsionDropdownNavbarItem = (props: Props): JSX.Element => {
   )
 }
 
-export default DocsVErsionDropdownNavbarItem
+export default DocsVersionDropdownNavbarItem

@@ -1,7 +1,7 @@
 import { splitProps } from 'solid-js'
 import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem'
 
-import type { Props } from '@theme/NavbarItem/DocSidebarNavItem'
+import type { Props } from '@theme/NavbarItem/DocSidebarNavbarItem'
 import type { JSX } from 'solid-js'
 
 const DocNavbarItem = (props: Props): JSX.Element | null => {

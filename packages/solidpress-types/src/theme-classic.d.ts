@@ -31,4 +31,5 @@ export interface Navbar {
 
 export interface ThemeConfig {
   navbar: Navbar
+  versioned?: boolean
 }

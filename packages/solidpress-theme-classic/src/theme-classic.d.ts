@@ -64,7 +64,7 @@ declare module '@theme/NavbarItem/ComponentTypes' {
   import type DocNavbarItem from '@theme/NavbarItem/DocNavbarItem'
   import type HtmlNavbarItem from '@theme/NavbarItem/HtmlNavbarItem'
   import type DocsVersionNavbarItem from '@theme/NavbarItem/DocsVersionNavbarItem'
-  import type DocSidebarNavbarItem from '@theme/NavbarItem/DocSidebarNavItem'
+  import type DocSidebarNavbarItem from '@theme/NavbarItem/DocSidebarNavbarItem'
   import type DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem'
   import type LocaleDropdownNavbarItem from '@theme/NavbarItem/LocaleDropdownNavbarItem'
   import type DocsVersionDropdownNavbarItem from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
@@ -92,7 +92,7 @@ declare module '@theme/NavbarItem' {
   import type { Props as DocNavbarItemProps } from '@theme/NavbarItem/DocNavbarItem'
   import type { Props as HtmlNavbarItemProps } from '@theme/NavbarItem/HtmlNavbarItem'
   import type { Props as DocsVersionNavbarItemProps } from '@theme/NavbarItem/DocsVersionNavbarItem'
-  import type { Props as DocSidebarNavbarItemProps } from '@theme/NavbarItem/DocSidebarNavItem'
+  import type { Props as DocSidebarNavbarItemProps } from '@theme/NavbarItem/DocSidebarNavbarItem'
   import type { Props as DropdownNavbarItemProps } from '@theme/NavbarItem/DropdownNavbarItem'
   import type { Props as LocaleDropdownNavbarItemProps } from '@theme/NavbarItem/LocaleDropdownNavbarItem'
   import type { Props as DocsVersionDropdownNavbarItemProps } from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
@@ -174,14 +174,14 @@ declare module '@theme/NavbarItem/DocsVersionNavbarItem' {
   export default function DocsVersionNavbarItem(props: Props): JSX.Element
 }
 
-declare module '@theme/NavbarItem/DocSidebarNavItem' {
+declare module '@theme/NavbarItem/DocSidebarNavbarItem' {
   import type { Props as DefaultNavbarItemProps } from '@theme/NavbarItem/DefaultNavbarItem'
   import type { JSX } from 'solid-js'
 
   export type Props = {
     sidebarId: string
   } & DefaultNavbarItemProps
-  export default function DocSidebarNavItem(props: Props): JSX.Element
+  export default function DocSidebarNavbarItem(props: Props): JSX.Element
 }
 
 
