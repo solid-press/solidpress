@@ -7,6 +7,7 @@ import { is } from 'ramda';
 // import { DEFAULT_THEME_DIR } from '../paths'
 import { resolve } from '../utils/paths';
 import { resolveAlias } from '../alias';
+import { fetchVersionedMetaData } from '../plugin/versioned-plugin'
 import { allowedExtensions, debug } from './constants';
 import { resolveSiteData } from './site';
 import { mergeUserConfig } from './utils';
@@ -49,8 +50,23 @@ export async function resolveConfig(
 
   const { vite } = config;
 
+  const alias = resolveAlias('', themeDir)
+
+  if (siteData.themeConfig.versioned) {
+    // process version.
+    const versionedPath = path.resolve(srcDir, 'versioned_docs')
+    const versions = await fetchVersionedMetaData(versionedPath)
+    versions.forEach((version) => {
+      alias.push({
+        find: new RegExp(`${version}\\/(.*)`),
+        replacement: `${path.join(versionedPath, version)}/$1`,
+      })
+    })
+  }
+  console.log(alias)
+
   return {
-    alias: resolveAlias('', themeDir),
+    alias,
     configPath,
     deps,
     outDir,
@@ -111,7 +127,7 @@ async function resolveConfigExtends(
     return mergeUserConfig(
       await resolveConfigExtends(resolved.extends),
       resolved,
-    ) as  UserConfig;
+    ) as UserConfig;
   }
   return resolved;
 }
