@@ -11,8 +11,10 @@ export const scriptClientRE =
   /<script\b[^>]*client\b[^>]*>([\s\S]*?)<\/script>/;
 
 const SITE_DATA_KEY = '@siteData';
+const VERSIONS_DATA_KEY = '@versions';
 
 export const SITE_DATA_PATH = `/${SITE_DATA_KEY}`;
+export const VERSIONS_DATA_PATH = `/${VERSIONS_DATA_KEY}`
 
 export const HTML_RESPONSE = `
 <!DOCTYPE html>

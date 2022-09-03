@@ -36,4 +36,5 @@ export type SiteConfig = {
   tempDir: string;
   themeDir: string;
   pages: string[];
+  versions: string[];
 } & Pick<UserConfig, 'vite'>;

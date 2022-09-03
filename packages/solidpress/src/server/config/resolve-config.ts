@@ -51,11 +51,11 @@ export async function resolveConfig(
   const { vite } = config;
 
   const alias = resolveAlias('', themeDir)
-
+  let versions = []
   if (siteData.themeConfig.versioned) {
     // process version.
     const versionedPath = path.resolve(srcDir, 'versioned_docs')
-    const versions = await fetchVersionedMetaData(versionedPath)
+    versions = await fetchVersionedMetaData(versionedPath)
     versions.forEach((version) => {
       alias.push({
         find: new RegExp(`${version}\\/(.*)`),
@@ -63,7 +63,6 @@ export async function resolveConfig(
       })
     })
   }
-  console.log(alias)
 
   return {
     alias,
@@ -77,6 +76,7 @@ export async function resolveConfig(
     themeDir,
     tempDir: resolve(solidPressRoot, '.tmp'),
     vite,
+    versions,
   } as SiteConfig;
 }
 

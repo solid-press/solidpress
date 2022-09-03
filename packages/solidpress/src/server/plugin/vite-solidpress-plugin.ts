@@ -7,6 +7,7 @@ import { createMarkdownRenderer } from '../markdown';
 import { solidPressMiddleware } from './middleware';
 import {
   SITE_DATA_PATH,
+  VERSIONS_DATA_PATH,
   staticInjectMarkerRE,
   staticRestoreRE,
   staticStripRE,
@@ -22,10 +23,9 @@ export const ViteSolidPressPlugin = (
   ssr = false,
   pagesMap: { [key: string]: string },
 ): Plugin => {
-  const { alias, configPath, deps, srcDir, site, vite, pages } = siteConfig;
+  const { alias, configPath, deps, srcDir, site, vite, pages, versions } = siteConfig;
 
   let config: ResolvedConfig;
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let render: Awaited<ReturnType<typeof createMarkdownRenderer>>;
 
   const plugin: Plugin = {
@@ -57,9 +57,18 @@ export const ViteSolidPressPlugin = (
       });
     },
     resolveId(id) {
-      return (equals(id, SITE_DATA_PATH) && SITE_DATA_PATH) || undefined;
+      return [SITE_DATA_PATH, VERSIONS_DATA_PATH].find(id)
     },
     load(id) {
+      if (equals(id, VERSIONS_DATA_PATH)) {
+        return `export default JSON.parse(${JSON.stringify(
+          JSON.stringify({
+            enabled: versions.length > 0,
+            versions,
+          })
+        )})`
+      }
+
       if (equals(id, SITE_DATA_PATH)) {
         let data = site;
         if (equals(config.command, 'build')) {
