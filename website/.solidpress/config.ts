@@ -17,8 +17,8 @@ export default defineConfig({
           sidebarId: 'api',
           label: 'API',
         },
-        {to: 'blog', label: 'Blog', position: 'left'},
-        {to: 'showcase', label: 'Showcase', position: 'left'},
+        { to: 'blog', label: 'Blog', position: 'left' },
+        { to: 'showcase', label: 'Showcase', position: 'left' },
       ],
       logo: {
         alt: 'Solid Logo',
@@ -27,6 +27,7 @@ export default defineConfig({
         height: '40px',
       },
     },
-    versioned: true,   
+    versioned: true,
+    sidebarPath: 'sidebar.ts',
   },
 })

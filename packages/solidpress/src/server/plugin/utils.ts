@@ -27,3 +27,9 @@ export const injectPageData = (
     )});\n`
   );
 };
+
+export const exportData = (data: unknown): string => {
+  return `export default JSON.parse(${JSON.stringify(
+    JSON.stringify(data)
+  )})`
+}

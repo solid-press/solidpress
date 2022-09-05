@@ -32,4 +32,12 @@ export interface Navbar {
 export interface ThemeConfig {
   navbar: Navbar
   versioned?: boolean
+  // Only available when versioned is true
+  // Default to `versioned_docs`
+  versionedContentPath?: string
+  // Only available when versioned is true
+  // Default to `versioned_sidebars`
+  versionedSidebarPath?: string
+  // Default to `.solidpress/sidebar.[ts|js|json]`
+  sidebarPath?: string
 }

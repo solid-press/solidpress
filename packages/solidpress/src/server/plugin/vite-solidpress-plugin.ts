@@ -13,7 +13,7 @@ import {
   staticStripRE,
   hashRE,
 } from './constants';
-import { isPageChunk, isPageFile, injectPageData } from './utils';
+import { isPageChunk, isPageFile, injectPageData, exportData } from './utils';
 
 import type { OutputBundle, OutputChunk } from 'rollup';
 import type { SiteConfig } from '../config/types';
@@ -27,6 +27,21 @@ export const ViteSolidPressPlugin = (
 
   let config: ResolvedConfig;
   let render: Awaited<ReturnType<typeof createMarkdownRenderer>>;
+
+  const LOAD_DATA_MAP = {
+    [SITE_DATA_PATH]: () => {
+      let data = site;
+        if (equals(config.command, 'build')) {
+          data = { ...site, head: [] };
+        }
+        return data
+    },
+    [VERSIONS_DATA_PATH]: () => ({
+      versions,
+      enabled: versions.length > 0,
+    }),
+    []
+  }
 
   const plugin: Plugin = {
     name: 'solidpress',
@@ -57,27 +72,12 @@ export const ViteSolidPressPlugin = (
       });
     },
     resolveId(id) {
-      return [SITE_DATA_PATH, VERSIONS_DATA_PATH].find(id)
+      return Object.keys(LOAD_DATA_MAP).find(id)
     },
     load(id) {
-      if (equals(id, VERSIONS_DATA_PATH)) {
-        return `export default JSON.parse(${JSON.stringify(
-          JSON.stringify({
-            enabled: versions.length > 0,
-            versions,
-          })
-        )})`
-      }
-
-      if (equals(id, SITE_DATA_PATH)) {
-        let data = site;
-        if (equals(config.command, 'build')) {
-          data = { ...site, head: [] };
-        }
-
-        return `export default JSON.parse(${JSON.stringify(
-          JSON.stringify(data),
-        )})`;
+      const match = LOAD_DATA_MAP[id]
+      if (match) {
+        return exportData(match())
       }
     },
     async transform(code, id) {

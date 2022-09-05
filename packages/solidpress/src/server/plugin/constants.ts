@@ -1,4 +1,4 @@
-import {APP_PATH} from '../paths';
+import { APP_PATH } from '../paths';
 
 export const hashRE = /\.(\w+)\.js$/;
 export const staticInjectMarkerRE =
@@ -10,11 +10,23 @@ export const staticRestoreRE = /__VS_STATIC_(START|END)__/g;
 export const scriptClientRE =
   /<script\b[^>]*client\b[^>]*>([\s\S]*?)<\/script>/;
 
-const SITE_DATA_KEY = '@siteData';
-const VERSIONS_DATA_KEY = '@versions';
+const buildPath = (dataPath: string) => `/${dataPath}`
 
-export const SITE_DATA_PATH = `/${SITE_DATA_KEY}`;
-export const VERSIONS_DATA_PATH = `/${VERSIONS_DATA_KEY}`
+const SITE_DATA_KEY = '@siteData'
+const VERSIONS_DATA_KEY = '@versions'
+const SIDEBARS_DATA_KEY = '@sidebars'
+
+const [
+  SITE_DATA_PATH,
+  VERSIONS_DATA_PATH,
+  SIDEBARS_DATA_PATH,
+] = [SITE_DATA_KEY, VERSIONS_DATA_KEY, SIDEBARS_DATA_KEY].map(buildPath)
+
+export {
+  SITE_DATA_PATH,
+  VERSIONS_DATA_PATH,
+  SIDEBARS_DATA_PATH,
+}
 
 export const HTML_RESPONSE = `
 <!DOCTYPE html>
