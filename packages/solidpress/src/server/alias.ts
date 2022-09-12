@@ -13,6 +13,14 @@ export const resolveAlias = (_: string, themeDir: string): Alias[] => {
       replacement: '/@siteData',
     },
     {
+      find: '@sidebars',
+      replacement: '/@sidebars',
+    },
+    {
+      find: '@versions',
+      replacement: '/@versions',
+    },
+    {
       find: /^solidpress$/,
       replacement: path.join(DIST_CLIENT_DIR, '/index'),
     },

@@ -52,7 +52,11 @@ export async function resolveConfig(
 
   const alias = resolveAlias('', themeDir)
   let versions = []
-  if (siteData.themeConfig.versioned) {
+  const { themeConfig: {
+    versioned,
+    sidebarPath,
+  } } = siteData
+  if (versioned) {
     // process version.
     const versionedPath = path.resolve(srcDir, 'versioned_docs')
     versions = await fetchVersionedMetaData(versionedPath)
@@ -62,6 +66,25 @@ export async function resolveConfig(
         replacement: `${path.join(versionedPath, version)}/$1`,
       })
     })
+  }
+
+  let sidebarFilePath = path.resolve(solidPressRoot, 'sidebars')
+
+  if (sidebarPath) {
+    sidebarFilePath = path.resolve(solidPressRoot, sidebarPath)
+  }
+  let sidebars = {} as unknown
+
+  for (const extension of ['.ts', '.js', '.json']) {
+    let testPath = sidebarFilePath
+    if (!sidebarFilePath.endsWith(extension)) {
+      testPath += extension
+    }
+
+    if (await fs.pathExists(sidebarFilePath)) {
+      sidebars = import(/*@vite-ignore*/ testPath)
+      break
+    }
   }
 
   return {
@@ -77,6 +100,7 @@ export async function resolveConfig(
     tempDir: resolve(solidPressRoot, '.tmp'),
     vite,
     versions,
+    sidebars,
   } as SiteConfig;
 }
 

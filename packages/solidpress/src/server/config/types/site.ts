@@ -37,4 +37,5 @@ export type SiteConfig = {
   themeDir: string;
   pages: string[];
   versions: string[];
+  sidebars: { [key: string]: unknown };
 } & Pick<UserConfig, 'vite'>;

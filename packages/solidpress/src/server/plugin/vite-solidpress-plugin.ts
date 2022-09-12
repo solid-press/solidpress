@@ -8,6 +8,7 @@ import { solidPressMiddleware } from './middleware';
 import {
   SITE_DATA_PATH,
   VERSIONS_DATA_PATH,
+  SIDEBARS_DATA_PATH,
   staticInjectMarkerRE,
   staticRestoreRE,
   staticStripRE,
@@ -23,25 +24,27 @@ export const ViteSolidPressPlugin = (
   ssr = false,
   pagesMap: { [key: string]: string },
 ): Plugin => {
-  const { alias, configPath, deps, srcDir, site, vite, pages, versions } = siteConfig;
+  const { alias, configPath, deps, srcDir, site, vite, pages, versions, sidebars } = siteConfig;
 
   let config: ResolvedConfig;
   let render: Awaited<ReturnType<typeof createMarkdownRenderer>>;
 
-  const LOAD_DATA_MAP = {
-    [SITE_DATA_PATH]: () => {
+  const LOAD_DATA_MAP = new Map([
+    [SITE_DATA_PATH, () => {
       let data = site;
-        if (equals(config.command, 'build')) {
-          data = { ...site, head: [] };
-        }
-        return data
-    },
-    [VERSIONS_DATA_PATH]: () => ({
+      if (equals(config.command, 'build')) {
+        data = { ...site, head: [] };
+      }
+      return data
+    }],
+    [VERSIONS_DATA_PATH, () => ({
       versions,
       enabled: versions.length > 0,
-    }),
-    []
-  }
+    })],
+    [SIDEBARS_DATA_PATH, () => {
+      return sidebars
+    }]
+  ])
 
   const plugin: Plugin = {
     name: 'solidpress',
@@ -72,10 +75,13 @@ export const ViteSolidPressPlugin = (
       });
     },
     resolveId(id) {
-      return Object.keys(LOAD_DATA_MAP).find(id)
+      if (LOAD_DATA_MAP.has(id)) {
+        return id
+      }
+      return undefined
     },
     load(id) {
-      const match = LOAD_DATA_MAP[id]
+      const match = LOAD_DATA_MAP.get(id)
       if (match) {
         return exportData(match())
       }
