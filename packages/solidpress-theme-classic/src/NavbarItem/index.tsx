@@ -5,12 +5,20 @@ import type { Props } from '@theme/NavbarItem'
 import type { JSX } from 'solid-js'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const resolveNavbarItemType = (type: string) => {
-  return COMPONENT_TYPES.default
+const resolveNavbarItemType = (props: Props) => {
+  // eslint-disable-next-line solid/reactivity
+  const { type } = props
+  if (!type || type === 'default') {
+    return COMPONENT_TYPES['items' in props ? 'dropdown' : 'default']
+  }
+  return COMPONENT_TYPES[type]
 }
 
 const NavbarItem = (props: Props): JSX.Element => {
-  return <Dynamic component={COMPONENT_TYPES.default} {...props} />
+  return <Dynamic
+    component={resolveNavbarItemType(props)}
+    {...props}
+  />
 }
 
 export default NavbarItem

@@ -70,7 +70,6 @@ declare module '@theme/NavbarItem/ComponentTypes' {
   import type DocsVersionDropdownNavbarItem from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
   import type { Component } from 'solid-js'
 
-
   export type ComponentTypes = {
     default: typeof DefaultNavbarItem
     doc: typeof DocNavbarItem

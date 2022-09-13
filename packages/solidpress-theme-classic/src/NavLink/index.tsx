@@ -11,6 +11,7 @@ const NavLink = (props: Props): JSX.Element => {
   const withBase = useWithBase()
   const page = usePageData()
 
+  console.log(props.href, props.to)
   const href = () => withBase(props.href || props.to)
   const active = () => {
     const { activeMatch } = props

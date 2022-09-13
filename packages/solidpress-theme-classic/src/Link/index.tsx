@@ -9,14 +9,14 @@ import type { JSX } from 'solid-js'
 
 const Link = (props: Props): JSX.Element => {
 
-  const isExternal = () => props.href && isExternalLink(props.href)
-  const showIcon = () => isExternal() && !props.noIcon
+  const isExternal$ = () => props.href && isExternalLink(props.href)
+  const showIcon = () => isExternal$() && !props.noIcon
   const anchorAttrs = () => {
     if (!props.href) {
       return {}
     }
 
-    const external = isExternal()
+    const external = isExternal$()
 
     return {
       href: props.href,
@@ -27,9 +27,10 @@ const Link = (props: Props): JSX.Element => {
     }
   }
 
-  const [, rest] = splitProps(props, ['href', 'children', 'noIcon'])
+  const [, rest] = splitProps(props, ['href', 'children', 'noIcon', 'type', 'position', 'docId', 'label'])
   return (
     <Dynamic
+      {...rest}
       component={props.href ? 'a' : 'span'}
       classList={{
         ...(props.classList || {}),
@@ -37,7 +38,6 @@ const Link = (props: Props): JSX.Element => {
         active: props.active,
       }}
       {...anchorAttrs()}
-      {...rest}
     >
       {props.children}
       <Show when={showIcon()}>
