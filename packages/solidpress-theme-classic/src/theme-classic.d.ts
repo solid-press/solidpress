@@ -32,9 +32,9 @@ declare module '@theme/Logo' {
 }
 
 declare module '@theme/Link' {
-  import type { ParentProps, JSX } from 'solid-js'
+  import type { ComponentProps, ParentProps, JSX } from 'solid-js'
 
-  export interface Props extends ParentProps, JSX.CustomAttributes<never> {
+  export interface Props extends ComponentProps<any>, ParentProps, JSX.CustomAttributes<never> {
     active?: boolean
     href?: string
     noIcon?: boolean

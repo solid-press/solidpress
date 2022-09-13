@@ -24,8 +24,8 @@ const Desktop = (props: CommonProps) => {
     <NavLink
       classList={{
         ['dropdown__link']: props.isDropdownLink,
-        ['navbar__item navbar__link']: props.isDropdownLink,
-        [props.class]: true,
+        ['navbar__item navbar__link']: !props.isDropdownLink,
+        ...(props.class ? { [props.class]: true, } : {})
       }}
       {...props}
     />

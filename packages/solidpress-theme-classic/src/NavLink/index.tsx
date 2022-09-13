@@ -25,7 +25,9 @@ const NavLink = (props: Props): JSX.Element => {
   return (
     <Link
       active={props.active || active()}
+      class={styles.navlink}
       classList={{
+        ...(props.classList || {}),
         [styles.navlink]: true,
       }}
       href={href()}

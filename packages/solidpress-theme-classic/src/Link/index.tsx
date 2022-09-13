@@ -28,12 +28,12 @@ const Link = (props: Props): JSX.Element => {
   }
 
   const [, rest] = splitProps(props, ['href', 'children', 'noIcon'])
-
   return (
-    <Dynamic  
+    <Dynamic
       component={props.href ? 'a' : 'span'}
       classList={{
         ...(props.classList || {}),
+        ...(props.class ? { [props.class]: true, } : {}),
         active: props.active,
       }}
       {...anchorAttrs()}

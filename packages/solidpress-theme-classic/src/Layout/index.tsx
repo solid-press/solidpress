@@ -7,6 +7,7 @@ import type { ParentProps, JSX } from 'solid-js';
 
 import '../styles/vars.css'
 import '../styles/base.css'
+import '../styles/index.css'
 export interface Props {
   noFooter?: boolean;
   wrapperClass?: string;

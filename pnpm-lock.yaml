@@ -141,8 +141,10 @@ importers:
 
   packages/solidpress-alias:
     specifiers:
+      '@solidpress/types': workspace:*
       solid-js: ^1.4.8
     dependencies:
+      '@solidpress/types': link:../solidpress-types
       solid-js: 1.4.8
 
   packages/solidpress-theme-classic:
