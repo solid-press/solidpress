@@ -1,5 +1,6 @@
 import { For } from 'solid-js/web'
 import { useNavbar } from '@solidpress/core/lib/client'
+import { splitNavbarItems } from '@solidpress/utils'
 import NavbarItem from '@theme/NavbarItem'
 import NavbarContentLayout from './Layout';
 import NavbarLogo from '../Logo'
@@ -24,6 +25,8 @@ export default function (): JSX.Element {
   const logo = () => navbar().logo
   const brandName = () => navbar().name
   const navbarItems = () => navbar().items
+  const leftItems = () => splitNavbarItems(navbarItems())[0]
+  const rightItems = () => splitNavbarItems(navbarItems())[1]
   return (
     <NavbarContentLayout
       left={
@@ -32,9 +35,14 @@ export default function (): JSX.Element {
             logo={logo()}
             brandName={brandName()}
           />
-          <NavbarItems items={navbarItems()}/>
+          <NavbarItems items={leftItems()}/>
         </>
       }
-      right={<>Items</>} />
+      right={
+        <>
+          <NavbarItems items={rightItems()}/>
+        </>
+      }
+    />
   )
 }

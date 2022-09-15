@@ -11,3 +11,4 @@ export {
   isSamePath,
   normalize
 } from './link.mjs'
+export { splitNavbarItems } from './navbar.mjs'
