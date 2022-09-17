@@ -19,6 +19,9 @@ export default defineConfig({
         },
         { to: 'blog', label: 'Blog', position: 'left' },
         { to: 'showcase', label: 'Showcase', position: 'left' },
+        {
+          type: 'docsVersionDropdown', position: 'right',
+        }
       ],
       logo: {
         alt: 'Solid Logo',

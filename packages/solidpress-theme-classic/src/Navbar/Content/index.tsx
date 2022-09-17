@@ -27,6 +27,7 @@ export default function (): JSX.Element {
   const navbarItems = () => navbar().items
   const leftItems = () => splitNavbarItems(navbarItems())[0]
   const rightItems = () => splitNavbarItems(navbarItems())[1]
+  console.log(rightItems())
   return (
     <NavbarContentLayout
       left={

@@ -1,4 +1,5 @@
 import { Show } from 'solid-js/web'
+import { useVersions } from '@solidpress/core/lib/client'
 import DropdownNavbarItem from '@theme/NavbarItem/DropdownNavbarItem'
 import DefaultNavbarItem from '@theme/NavbarItem/DefaultNavbarItem'
 
@@ -6,15 +7,16 @@ import type { Props } from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
 import type { JSX } from 'solid-js'
 
 const DocsVersionDropdownNavbarItem = (props: Props): JSX.Element => {
-  const versions = [] // get versions later
+  const { versions } = useVersions()
 
   const onItemClick = (name: string) => {
     console.log(name)
   }
 
   // version link getter
-  const links$ = () => versions.map((version) => {
-    const { label } = version
+  const links$ = () => versions().versions.map((version: string) => {
+    const label = version
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const versionedDoc = {} as any // get versioned doc variable via version.
     return {
       label,
@@ -40,6 +42,7 @@ const DocsVersionDropdownNavbarItem = (props: Props): JSX.Element => {
     >
       <DropdownNavbarItem
         {...props}
+        label='versions'
         items={items$()}
         onItemClick={onItemClick}
       />

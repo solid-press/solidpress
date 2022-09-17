@@ -1,6 +1,10 @@
 
-import { Dynamic, For } from 'solid-js/web'
-import { createSignal, onMount, onCleanup } from 'solid-js'
+import { Dynamic, For, Show } from 'solid-js/web'
+import {
+  createSignal,
+  onMount,
+  onCleanup,
+} from 'solid-js'
 import {
   // isSamePath,
   // asRegxrMatch,
@@ -117,20 +121,22 @@ const Desktop = (props: CommonProps): JSX.Element => {
       >
         {props.children || props.label}
       </NavLink>
-      <ul class={cls.e('menu')}>
-        <For each={props.items}>
-          {(item, i$) => {
-            return (
-              <NavbarItem
-                isDropdownLink
-                onKeyDown={[onNavItemKeyDown, i$]}
-                {...item}
-                activeClass='dropdown__link--active'
-              />
-            )
-          }}
-        </For>
-      </ul>
+      <Show when={dropdownVisible()}>
+        <ul class={cls.e('menu')}>
+          <For each={props.items}>
+            {(item, i$) => {
+              return (
+                <NavbarItem
+                  isDropdownLink
+                  onKeyDown={[onNavItemKeyDown, i$]}
+                  {...item}
+                  activeClass='dropdown__link--active'
+                />
+              )
+            }}
+          </For>
+        </ul>
+      </Show>
     </div>
   )
 }
